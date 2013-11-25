@@ -25,7 +25,7 @@ public class PreorderTraversal {
 		root.right.left = new TreeNode(3);
 		ArrayList<Integer> result = preorderTraversal(root);
 		for( int i = 0; i < result.size(); i++ )
-			System.out.println(result.get(i) + " ");
+			System.out.print(result.get(i) + " ");
 	}
 }
 
