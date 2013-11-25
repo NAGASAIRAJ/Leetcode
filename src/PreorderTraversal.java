@@ -7,13 +7,13 @@ public class PreorderTraversal {
     	if( root == null ) return null;
     	ArrayList<Integer> result = new ArrayList<Integer>();
         Stack<TreeNode> st = new Stack<TreeNode>();
-        result.add(root.val);
-        st.push(root.right);st.push(root.left);
+        st.push(root);
+        
         while( !st.empty() ) {
         	TreeNode tmp = st.pop();
         	result.add(tmp.val);
-        	st.push(tmp.right);
-        	st.push(tmp.left);
+        	if( tmp.right != null ) st.push(tmp.right);
+        	if( tmp.left != null ) st.push(tmp.left);
         }
         
         return result;
