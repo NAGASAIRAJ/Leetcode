@@ -4,8 +4,8 @@ public class PreorderTraversal {
     public static ArrayList<Integer> preorderTraversal(TreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-    	if( root == null ) return null;
     	ArrayList<Integer> result = new ArrayList<Integer>();
+    	if( root == null ) return result;
         Stack<TreeNode> st = new Stack<TreeNode>();
         st.push(root);
         
