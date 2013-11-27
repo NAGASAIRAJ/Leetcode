@@ -7,7 +7,7 @@ public class PostorderTraversal {
     	ArrayList<Integer> result = new ArrayList<Integer>();
     	if( root == null ) return result;
         Stack<TreeNode1> st = new Stack<TreeNode1>();
-        TreeNode1 previous = null;
+        TreeNode1 previous = new TreeNode1(0);;
         st.push(root);
         
         while( !st.empty() ) {
