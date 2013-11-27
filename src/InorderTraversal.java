@@ -8,8 +8,7 @@ public class InorderTraversal {
     	ArrayList<Integer> result = new ArrayList<Integer>();
     	if( root == null ) return result;
         Stack<TreeNode2> st = new Stack<TreeNode2>();
-        st.push(root);
-        TreeNode2 current = null;
+        TreeNode2 current = root;
         while( current != null || !st.empty() ) {
         	if( current != null ) {
         		st.push(current);
