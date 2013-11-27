@@ -19,11 +19,16 @@ public class IsSameTree {
 		TreeNode4 p = new TreeNode4(1);
 		p.right = new TreeNode4(2);
 		p.right.left = new TreeNode4(3);
+
 		TreeNode4 q = new TreeNode4(1);
 		q.right = new TreeNode4(2);
 		q.right.left = new TreeNode4(3);
+		
+		TreeNode4 o = new TreeNode4(1);
+		o.left = new TreeNode4(2);
+		o.left.right = new TreeNode4(3);
 
-		if( isSameTree(p , q) )
+		if( isSameTree(p , o) )
 			System.out.println("Two trees are same!");
 		else
 			System.out.println("Two trees are not same!");
