@@ -16,6 +16,10 @@ public class ReverseInteger {
 	
 	public static void main(String[] args) {
 		int value = -1234;
+		int value2 = 1000000003;
+		int value3 = 100;
 		System.out.println("Origin num: " + value + " and Reversed: " + reverse(value));
+		System.out.println("Origin num: " + value2 + " and Reversed: " + reverse(value2));
+		System.out.println("Origin num: " + value3 + " and Reversed: " + reverse(value3));
 	}
 }
