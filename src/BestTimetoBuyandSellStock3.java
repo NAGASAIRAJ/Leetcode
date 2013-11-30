@@ -5,7 +5,7 @@ public class BestTimetoBuyandSellStock3 {
 		int profit = 0;
 		int[] profits = new int[prices.length];
 		int MaxUntilNow = Integer.MIN_VALUE;
-		int MinPrice = Integer.MIN_VALUE;
+		int MinPrice = Integer.MAX_VALUE;
 		int MaxPrice = Integer.MIN_VALUE;
 		for( int i = 0; i < prices.length; i++ ) {
 			if( prices[i] < MinPrice )
