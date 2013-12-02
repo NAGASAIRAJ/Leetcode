@@ -8,14 +8,26 @@ public class RemoveElement {
         }
         int available = 0, current = 0, next = 0, len = 0;
         while( current < A.length ) {
-        	next = current + 1;
         	if( A[current] == elem ) {
-        		while( next < A.length && A[next] == elem )
-        			next++;
+        		next = current + 1;
+        		while( next < A.length ) {
+        			if( A[next] == elem )
+        				next++;
+        			else break;
+        		}
+        			
         		if( next < A.length ) {
         			A[available] = A[next];
-        			available = current + 1;
-        			current = next + 1;       			
+        			A[next] = elem;
+        			for( int i = current + 1; i <= next; i++ ) {
+        				if( A[i] == elem) {
+        					available = i;
+        					break;
+        				}
+        			}
+        			current = next;  
+        			
+        			//current = next + 1;       			
         		}
         		else {
         			for( int i = current; i < A.length; i++ )
