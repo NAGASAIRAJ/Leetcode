@@ -10,7 +10,7 @@ public class RemoveElement {
         while( current < A.length ) {
         	next = current + 1;
         	if( A[current] == elem ) {
-        		while( A[next] == elem && next < A.length )
+        		while( next < A.length && A[next] == elem )
         			next++;
         		if( next < A.length ) {
         			A[available] = A[next];
