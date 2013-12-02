@@ -12,7 +12,8 @@ public class SearchInsertPosition {
     		else end = mid - 1;
     	}
     	
-    	return (mid+1);
+    	if( A[mid] < target ) return start; 
+    	else return mid;
     }
     
 	public static void main(String[] args) {
