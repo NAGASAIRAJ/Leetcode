@@ -35,8 +35,10 @@ public class RemoveElement {
         			break;
         		}
         	}
-        	else 
+        	else { 
         		current++;
+        		available++;
+        	}
 			len++; 
         }
         return len;
