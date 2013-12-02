@@ -34,8 +34,10 @@ public class RemoveElement {
 		int[] test = {1, 3, 5, 6};
 		int[] test2 = {1, 1, 2};
 		int[] test3 = {1, 1, 1, 2};
+		int[] test4 = {1, 1};
 		System.out.println("No Duplicate Lenth in test case 1: " + removeElement(test, 2));
 		System.out.println("No Duplicate Lenth in test case 2: " + removeElement(test2, 1));
 		System.out.println("No Duplicate Lenth in test case 3: " + removeElement(test3, 1));
+		System.out.println("No Duplicate Lenth in test case 3: " + removeElement(test4, 1));
     }
 }
