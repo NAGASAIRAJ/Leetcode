@@ -29,12 +29,12 @@ public class RemoveElement {
         			
         			//current = next + 1;       			
         		}
-        		else {
+/*        		else {
         			for( int i = current; i < A.length; i++ )
-        				A[i] = 0;
+        				A[i] = elem;
         			break;
         		}
-        	}
+*/        	}
         	else { 
         		current++;
         		available++;
