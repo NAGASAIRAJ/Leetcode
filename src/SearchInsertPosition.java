@@ -12,7 +12,7 @@ public class SearchInsertPosition {
     		else end = mid - 1;
     	}
     	
-    	return (start+1);
+    	return (mid+1);
     }
     
 	public static void main(String[] args) {
