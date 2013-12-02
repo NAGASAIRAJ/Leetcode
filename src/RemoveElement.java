@@ -15,8 +15,7 @@ public class RemoveElement {
         		if( next < A.length ) {
         			A[available] = A[next];
         			available = current + 1;
-        			current = next + 1;
-        			len++;        			
+        			current = next + 1;       			
         		}
         		else {
         			for( int i = current; i < A.length; i++ )
@@ -26,6 +25,7 @@ public class RemoveElement {
         	}
         	else 
         		current++;
+			len++; 
         }
         return len;
     }
