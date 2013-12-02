@@ -18,5 +18,8 @@ public class SearchInsertPosition {
 	public static void main(String[] args) {
 		int[] test = {1, 3, 5, 6};
 		System.out.println("Insert Position in test case 1: " + searchInsert(test, 5));		
+		System.out.println("Insert Position in test case 2: " + searchInsert(test, 2));
+		System.out.println("Insert Position in test case 3: " + searchInsert(test, 7));
+		System.out.println("Insert Position in test case 4: " + searchInsert(test, 0));
 	}
 }
