@@ -6,42 +6,14 @@ public class RemoveElement {
         	A[0] = 0;
         	return 0;
         }
-        int available = 0, current = 0, next = 0, len = 0;
-        while( current < A.length ) {
-        	if( A[current] == elem ) {
-        		next = current + 1;
-        		while( next < A.length ) {
-        			if( A[next] == elem )
-        				next++;
-        			else break;
-        		}
-        			
-        		if( next < A.length ) {
-        			A[available] = A[next];
-        			A[next] = elem;
-        			for( int i = current + 1; i <= next; i++ ) {
-        				if( A[i] == elem) {
-        					available = i;
-        					break;
-        				}
-        			}
-        			current = next;  
-        			
-        			//current = next + 1;       			
-        		}
-        		else {
-        			for( int i = current; i < A.length; i++ )
-        				A[i] = elem;
-        			break;
-        		}
-        	}
-        	else { 
-        		current++;
-        		available++;
-        	}
-			len++; 
+        int current = 0;
+        for( int i = 0; i < A.length; i++ ) {
+        	if( A[i] == elem )
+        		continue;
+        	A[current] = A[i];
+        	current++;
         }
-        return len;
+        return current;
     }
     
     public static void main(String[] args) {
