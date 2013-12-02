@@ -21,7 +21,9 @@ public class RemoveDuplicatesfromSortedArray {
     public static void main(String[] args) {
 		int[] test = {1, 3, 5, 6};
 		int[] test2 = {1, 1, 2};
+		int[] test3 = {1, 1, 1, 2};
 		System.out.println("No Duplicate Lenth in test case 1: " + removeDuplicates(test));
 		System.out.println("No Duplicate Lenth in test case 2: " + removeDuplicates(test2));
+		System.out.println("No Duplicate Lenth in test case 3: " + removeDuplicates(test3));
     }
 }
