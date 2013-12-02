@@ -21,5 +21,6 @@ public class SearchInsertPosition {
 		System.out.println("Insert Position in test case 2: " + searchInsert(test, 2));
 		System.out.println("Insert Position in test case 3: " + searchInsert(test, 7));
 		System.out.println("Insert Position in test case 4: " + searchInsert(test, 0));
+		System.out.println("Insert Position in test case 5: " + searchInsert(test, 4));
 	}
 }
