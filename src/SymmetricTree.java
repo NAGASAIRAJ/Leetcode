@@ -25,10 +25,21 @@ public class SymmetricTree {
 		root.right.left = new TreeNode5(4);
 		root.right.right = new TreeNode5(3);
 		
+		TreeNode5 root2 = new TreeNode5(1);
+		root2.left = new TreeNode5(2);
+		root2.right = new TreeNode5(2);
+		root2.left.right = new TreeNode5(3);
+		root2.right.right = new TreeNode5(3);
+		
 		if( isSymmetric(root) )
-			System.out.println("This is a symmetric tree!");
+			System.out.println("Tree1 is a symmetric tree!");
 		else 
-			System.out.println("This is not a symmetric tree!");
+			System.out.println("Tree1 is not a symmetric tree!");
+		
+		if( isSymmetric(root2) )
+			System.out.println("Tree2 is a symmetric tree!");
+		else 
+			System.out.println("Tree2 is not a symmetric tree!");
 	}
 }
 
