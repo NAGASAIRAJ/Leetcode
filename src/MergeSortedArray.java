@@ -8,13 +8,12 @@ public class MergeSortedArray {
     		if( A[A_cur] < B[B_cur] ) {
     			A[result_cur] = A[A_cur];
     			A_cur--;
-    			result_cur--;
     		}
     		else {
     			A[result_cur] = B[B_cur];
     			B_cur--;
-    			result_cur--;
     		}
+    		result_cur--;
     	}
     	if( B_cur >= 0 ) {
     		for( int i = B_cur; i >= 0; i-- ) {
