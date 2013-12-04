@@ -57,14 +57,14 @@ public class SymmetricTree {
 		root2.right.right = new TreeNode5(3);
 		
 		if( isSymmetric(root) )
-			System.out.println("cTree1 is a symmetric tree!");
+			System.out.println("Recusively, Tree1 is a symmetric tree!");
 		else 
-			System.out.println("Iteratively, Tree1 is not a symmetric tree!");
+			System.out.println("Recusively, Tree1 is not a symmetric tree!");
 		
 		if( isSymmetric(root2) )
-			System.out.println("Iteratively, Tree2 is a symmetric tree!");
+			System.out.println("Recusively, Tree2 is a symmetric tree!");
 		else 
-			System.out.println("Iteratively, Tree2 is not a symmetric tree!");
+			System.out.println("Recusively, Tree2 is not a symmetric tree!");
 		
 		if( isSymmetric2(root) )
 			System.out.println("Iteratively, Tree1 is a symmetric tree!");
