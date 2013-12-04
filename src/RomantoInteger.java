@@ -6,7 +6,7 @@ public class RomantoInteger {
     	int result = 0;
     	for( int i = 0; i < s.length(); i++ ) {
     		if( (i > 0) && ChartoInt(s.charAt(i-1)) < ChartoInt(s.charAt(i)))
-    			result += (ChartoInt(s.charAt(i)) - ChartoInt(s.charAt(i-1)));
+    			result += (ChartoInt(s.charAt(i)) - ChartoInt(s.charAt(i-1))*2);
     		else
     			result += ChartoInt(s.charAt(i));
     	}
