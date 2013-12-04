@@ -30,14 +30,16 @@ public class SymmetricTree {
     		
         	if( (left != null && right == null) || (left == null && right != null))
         		return false;
-        	if( left.val == right.val ) {
-        		l.add(left.left);
-        		l.add(left.right);
-        		r.add(right.right);
-        		r.add(right.left);
+        	if( left != null ) {
+        		if( left.val == right.val ) {
+        			l.add(left.left);
+        			l.add(left.right);
+        			r.add(right.right);
+        			r.add(right.left);
+        		}
+        		else 
+        			return false;
         	}
-        	else 
-        		return false;
     	}
         return true;
     }
