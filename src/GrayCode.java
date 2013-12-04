@@ -24,7 +24,7 @@ public class GrayCode {
     	ArrayList<Integer> prev = grayCode2(n-1);
     	result.addAll(prev);
     	int top = 1 << (n-1);
-    	for( int i = 0; i < prev.size(); i++ )
+    	for( int i = prev.size()-1; i >= 0; i-- )
     		result.add(top+prev.get(i));
     	return result;
     }
