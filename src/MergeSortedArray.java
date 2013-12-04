@@ -5,7 +5,7 @@ public class MergeSortedArray {
     	int B_cur = n - 1;
     	int result_cur = m + n - 1; 
     	while( A_cur >= 0 && B_cur >= 0 ) {
-    		if( A[A_cur] < B[B_cur] ) {
+    		if( A[A_cur] > B[B_cur] ) {
     			A[result_cur] = A[A_cur];
     			A_cur--;
     		}
