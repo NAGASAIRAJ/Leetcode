@@ -22,7 +22,7 @@ public class PascalsTriangle {
     				current.add(1);
     			}
     			else {
-    				int num = previous.get(j) + previous.get(j-1);
+    				int num = previous.get(j-2) + previous.get(j-1);
     				current.add(num);
     			}    				
     		}
