@@ -9,7 +9,7 @@ public class MaximumSubarray {
     		tmp_max += A[i];
     		if( tmp_max > max )
     			max = tmp_max;
-    		else if( tmp_max < 0 )
+    		if( tmp_max < 0 )
     			tmp_max = 0;
     	}
     	return max;
