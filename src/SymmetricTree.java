@@ -16,6 +16,31 @@ public class SymmetricTree {
     	return false;
     }
     
+    public static boolean isSymmetric2(TreeNode5 root) {
+        if( root == null )	return true;
+        TreeNode5 left = root.left;
+        TreeNode5 right = root.right;
+    	java.util.LinkedList<TreeNode5> l = new java.util.LinkedList<TreeNode5>();
+    	java.util.LinkedList<TreeNode5> r = new java.util.LinkedList<TreeNode5>();
+    	l.add(left);
+    	r.add(right);
+    	while( !l.isEmpty() && !r.isEmpty() ) {
+    		left = l.pop();
+    		right = r.pop();
+    		if( left == null && right == null )
+        		return true;
+        	if( (left != null && right == null) || (left == null && right != null))
+        		return false;
+        	if( left.val == right.val ) {
+        		l.add(left.left);
+        		l.add(left.right);
+        		r.add(right.right);
+        		r.add(right.left);
+        	}
+    	}
+        return false;
+    }
+    
 	public static void main(String[] args) {
 		TreeNode5 root = new TreeNode5(1);
 		root.left = new TreeNode5(2);
@@ -32,14 +57,24 @@ public class SymmetricTree {
 		root2.right.right = new TreeNode5(3);
 		
 		if( isSymmetric(root) )
-			System.out.println("Tree1 is a symmetric tree!");
+			System.out.println("cTree1 is a symmetric tree!");
 		else 
-			System.out.println("Tree1 is not a symmetric tree!");
+			System.out.println("Iteratively, Tree1 is not a symmetric tree!");
 		
 		if( isSymmetric(root2) )
-			System.out.println("Tree2 is a symmetric tree!");
+			System.out.println("Iteratively, Tree2 is a symmetric tree!");
 		else 
-			System.out.println("Tree2 is not a symmetric tree!");
+			System.out.println("Iteratively, Tree2 is not a symmetric tree!");
+		
+		if( isSymmetric2(root) )
+			System.out.println("Iteratively, Tree1 is a symmetric tree!");
+		else 
+			System.out.println("Iteratively, Tree1 is not a symmetric tree!");
+		
+		if( isSymmetric2(root2) )
+			System.out.println("Iteratively, Tree2 is a symmetric tree!");
+		else 
+			System.out.println("Iteratively, Tree2 is not a symmetric tree!");
 	}
 }
 
