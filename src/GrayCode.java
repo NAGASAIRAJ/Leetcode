@@ -16,6 +16,7 @@ public class GrayCode {
     		return result;
     	}    		   
     	if( n == 1 ) {
+    		result.add(0);
     		result.add(1);
     		return result;
     	}
