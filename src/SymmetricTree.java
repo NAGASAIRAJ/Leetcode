@@ -37,6 +37,8 @@ public class SymmetricTree {
         		r.add(right.right);
         		r.add(right.left);
         	}
+        	else 
+        		return false;
     	}
         return false;
     }
