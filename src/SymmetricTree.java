@@ -27,8 +27,7 @@ public class SymmetricTree {
     	while( !l.isEmpty() && !r.isEmpty() ) {
     		left = l.pop();
     		right = r.pop();
-    		if( left == null && right == null )
-        		return true;
+    		
         	if( (left != null && right == null) || (left == null && right != null))
         		return false;
         	if( left.val == right.val ) {
