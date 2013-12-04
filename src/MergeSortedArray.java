@@ -17,7 +17,7 @@ public class MergeSortedArray {
     	}
     	if( B_cur >= 0 ) {
     		for( int i = B_cur; i >= 0; i-- ) {
-    			A[result_cur] = B[i]; // use i rather than B_cur
+    			A[result_cur] = B[i];
     			result_cur--;
     		}
     	}    	
