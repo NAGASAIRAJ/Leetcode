@@ -15,16 +15,19 @@ public class GenerateParentheses {
     		return;
     	}
     	if( left > 0 ) {
-    		cur.append("{");
+    		cur.append("(");
 			generateParenthesis(left-1, right, cur, results);
     		if( left < right ) {
-    			cur.append("}");
+    			cur.append(")");
     			generateParenthesis(left, right-1, cur, results);
     		}    		
     	}
     	else {
-    		cur.append("}");
-    		generateParenthesis(left, right-1, cur, results);
+    		while( right > 0 ) {
+    			cur.append(")");
+    			right--;
+    		}
+    		results.add(cur.toString());
     	}
     }
 }
