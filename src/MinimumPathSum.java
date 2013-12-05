@@ -4,9 +4,9 @@ public class MinimumPathSum {
     	int r = grid.length;
     	int c = grid[0].length;
     	int[][] paths = new int[r+2][c+2];
-    	for( int i = r; i < r + 2; i++ )
+    	for( int i = 0; i < r + 2; i++ )
     		paths[i][c+1] = Integer.MIN_VALUE;
-    	for( int i = c; i < c + 2; i++ )
+    	for( int i = 0; i < c + 2; i++ )
     		paths[r+1][i] = Integer.MIN_VALUE;
     	paths[r][c+1] = 0;
     	for( int i = r; i > 0; i-- ) {
