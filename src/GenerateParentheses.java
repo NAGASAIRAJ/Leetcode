@@ -5,7 +5,7 @@ public class GenerateParentheses {
     public ArrayList<String> generateParenthesis(int n) {
     	ArrayList<String> results = new ArrayList<String>();
     	StringBuffer tmp = new StringBuffer();
-    	generateParenthesis(3, 3, tmp, results);
+    	generateParenthesis(n, n, tmp, results);
     	return results;
     }
     public void generateParenthesis(int left, int right, 
