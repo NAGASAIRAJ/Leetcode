@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 public class GenerateParentheses {
     public ArrayList<String> generateParenthesis(int n) {
     	ArrayList<String> results = new ArrayList<String>();
@@ -28,6 +27,7 @@ public class GenerateParentheses {
     			right--;
     		}
     		results.add(cur);
+    		return;
     	}
     }
 }
