@@ -10,7 +10,7 @@ public class RemoveNthNodeFromEndofList {
     			head = null;
     		return head;
     	}    	
-    	ListNode EndPointer = head.next;
+    	ListNode EndPointer = head;
     	ListNode Pre = new ListNode(-1); 
     	Pre.next = head;
     	ListNode Cur = head;
