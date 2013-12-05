@@ -9,25 +9,19 @@ public class GenerateParentheses {
     }
     public void generateParenthesis(int left, int right, 
     		String cur, ArrayList<String> results) {
-    	if( right == 0 ) {
-    		results.add(cur);
-    		return;
-    	}
-    	if( left > 0 ) {
-    		cur += "(";
-			generateParenthesis(left-1, right, cur, results);
-    		if( left < right ) {
-    			cur += ")";
-    			generateParenthesis(left, right-1, cur, results);
-    		}    		
-    	}
-    	else {
+    	if( left == 0 ) {
     		while( right > 0 ) {
     			cur += ")";
     			right--;
     		}
     		results.add(cur);
     		return;
-    	}
+    	}    	   		
+		
+    	generateParenthesis(left-1, right, cur + "(", results);
+    	
+    	if( left < right )     			
+    			generateParenthesis(left, right-1, cur + ")", results);
+    		    		    	
     }
 }
