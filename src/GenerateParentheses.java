@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class GenerateParentheses {
     public ArrayList<String> generateParenthesis(int n) {
     	ArrayList<String> results = new ArrayList<String>();
+    	if( n <= 0 ) return results;
     	StringBuffer tmp = new StringBuffer();
     	generateParenthesis(n, n, tmp, results);
     	return results;
