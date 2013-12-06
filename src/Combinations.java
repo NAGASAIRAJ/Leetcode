@@ -12,10 +12,11 @@ public class Combinations {
     }
 	public void GenerateCombination(int n, int k, int depth, ArrayList<Integer> combinations, 
 			ArrayList<ArrayList<Integer>> result) {
-		if( depth == k ) {
+		if( combinations.size() == k ) {
 			ArrayList<Integer> tmp = new ArrayList<Integer>();
 			tmp.addAll(combinations);
 			result.add(tmp);
+			return;
 		}
 		for( int i = depth; i <= n; i++ ) {
 			combinations.add(i);
