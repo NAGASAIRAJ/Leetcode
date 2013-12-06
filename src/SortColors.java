@@ -16,8 +16,11 @@ public class SortColors {
     				if( i < RedIndex )
     					i = RedIndex;
     			}
-    			else 
+    			else {
     				RedIndex++;
+    				if( RedIndex >= len)	// [0, 0] case
+    					return;
+    			}
     		}
     		else if( A[i] == 2 ) {
     			if( i == A.length - 1 )
