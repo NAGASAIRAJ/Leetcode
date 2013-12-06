@@ -13,6 +13,8 @@ public class SortColors {
     			else if( A[RedIndex] != 0 ) {
     				swap(RedIndex, i, A);
     				RedIndex++;
+    				if( i < RedIndex )
+    					i = RedIndex;
     			}
     			else 
     				RedIndex++;
@@ -24,8 +26,11 @@ public class SortColors {
     				swap(i, BlueIndex, A);
     				BlueIndex--;
     			}
-    			else 
+    			else {
     				BlueIndex--;
+    				if( BlueIndex < i )
+    					return;
+    			}
     		}
     		else 
     			i++;
