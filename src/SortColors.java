@@ -4,7 +4,7 @@ public class SortColors {
     	int len = A.length;
     	if( len == 0 ) return;
     	int i = 0, RedIndex = 0, BlueIndex = len - 1;
-    	while( i < BlueIndex + 1 ) {
+    	while( i < len ) {
     		if( A[i] == 0 ) {
     			if( i == 0 ) {
     				i++;
