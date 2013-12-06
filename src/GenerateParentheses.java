@@ -21,7 +21,6 @@ public class GenerateParentheses {
     	generateParenthesis(left-1, right, cur + "(", results);
     	
     	if( left < right )     			
-    			generateParenthesis(left, right-1, cur + ")", results);
-    		    		    	
+    			generateParenthesis(left, right-1, cur + ")", results);    		    		    	
     }
 }
