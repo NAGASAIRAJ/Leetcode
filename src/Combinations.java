@@ -20,7 +20,7 @@ public class Combinations {
 		}
 		for( int i = depth; i <= n; i++ ) {
 			combinations.add(i);
-			GenerateCombination(n, k, depth+1, combinations, result);
+			GenerateCombination(n, k, i+1, combinations, result);
 			combinations.remove(combinations.size() - 1);
 		}
 	}
