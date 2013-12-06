@@ -6,14 +6,16 @@ public class SortColors {
     	int i = 0, RedIndex = 0, BlueIndex = len - 1;
     	while( i < BlueIndex + 1 ) {
     		if( A[i] == 0 ) {
-    			swap(RedIndex, i, A);
-    			RedIndex++;
-    			i++;
+    			if( i > 0) {
+    				swap(RedIndex, i, A);
+    				RedIndex++;
+    			}
     		}
     		else if( A[i] == 2 ) {
-    			swap(i, BlueIndex, A);
-    			BlueIndex--;
-    			i++;
+    			if( i < A.length ) {
+    				swap(i, BlueIndex, A);
+    				BlueIndex--;
+    			}
     		}
     		else 
     			i++;
