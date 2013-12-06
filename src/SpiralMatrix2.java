@@ -6,12 +6,12 @@ public class SpiralMatrix2 {
 		int row = n, col = n, count = 1, start = 0;
 		int[][] result = new int[n][n];
 		while( start * 2 < row && start * 2 < col ) {
-			generateMatrix(row, col, start, count, n * n, result);
+			count = generateMatrix(row, col, start, count, n * n, result);
 			start++;
 		}
 		return result;
     }
-	public void generateMatrix(int row, int col, int start, int count, int n, int[][] result) {
+	public static int generateMatrix(int row, int col, int start, int count, int n, int[][] result) {
 		int endX = col - 1 - start;
 		int endY = row - 1 - start;
 		for( int i = start; i <= endX && count <= n; i++ )
@@ -21,12 +21,13 @@ public class SpiralMatrix2 {
 				result[i][endX] = count++;
 		}
 		if( start < endX && start < endY ) {
-			for( int i = endX - 1; i >= start && count <= n; i++ )
+			for( int i = endX - 1; i >= start && count <= n; i-- )
 				result[endY][i] = count++;
 		}
 		if( start < endX && start < endY - 1 ) {
-			for( int i = endY - 1; i > start && count <= n; i++ )
+			for( int i = endY - 1; i > start && count <= n; i-- )
 				result[i][start] = count++;
 		}
+		return count;
 	}
 }
