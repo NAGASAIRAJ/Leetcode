@@ -3,7 +3,7 @@ public class TrappingRainWater {
     public int trap(int[] A) {
     	if( A.length == 0 )	return 0;
     	int MinHeight = 0, l = 0, r = 0, result = 0;
-    	for( int i = 1; i < A.length; i++ ) {
+    	for( int i = 1; i < A.length - 1; i++ ) {
     		for( int j = 0; j < i; j++ ) {
     			if( A[j] > l )
     				l = A[j];
