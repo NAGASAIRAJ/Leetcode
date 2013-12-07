@@ -14,7 +14,9 @@ public class TrappingRainWater {
     		}
     		MinHeight = Math.min(l, r);
     		if( MinHeight > A[i] )
-    			result += (MinHeight - A[i]);    		
+    			result += (MinHeight - A[i]);
+    		l = 0;
+    		r = 0;
     	}
     	return result;
     }
