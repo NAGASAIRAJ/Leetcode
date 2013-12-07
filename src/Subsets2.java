@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Subsets2 {
@@ -6,6 +7,7 @@ public class Subsets2 {
     	ArrayList<ArrayList<Integer>> subsets = new ArrayList<ArrayList<Integer>>();
     	if( num.length == 0 )
     		return subsets;
+    	Arrays.sort(num);
     	GenerateSubset(0, num.length, num, new ArrayList<Integer>(), subsets);
     	return subsets;
     }
