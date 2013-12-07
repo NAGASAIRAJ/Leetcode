@@ -40,6 +40,7 @@ public class PalindromeNumber {
     			break;
     		}
     		x_tmp = x_tmp % TopDivider / 10;
+    		TopDivider /= 100;
     	}
     	
     	return flag;
