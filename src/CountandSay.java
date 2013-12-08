@@ -17,6 +17,6 @@ public class CountandSay {
     	}
     	if( last < len )
     		tmp = tmp + (len - last) + result.charAt(last);
-    	return result;
+    	return tmp;
     }
 }
