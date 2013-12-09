@@ -2,6 +2,17 @@ import java.util.ArrayList;
 
 
 public class NQueens {
+	public static void main(String[] args) {
+        ArrayList<String[]> result = solveNQueens(4);
+        System.out.println("Solution number: " + result.size());
+        for(int i = 0; i < result.size(); i++){
+            System.out.println("solution:" + i);
+            for(int j = 0; j < result.get(i).length; j++){
+                System.out.println(result.get(i)[j]);
+            }
+        }
+    }
+	
 	public static ArrayList<String[]> solveNQueens(int n) {
 		ArrayList<String[]> result = new ArrayList<String[]>();
 		int depth = 0;
