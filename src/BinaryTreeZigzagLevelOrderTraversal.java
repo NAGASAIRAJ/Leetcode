@@ -5,12 +5,13 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 	public ArrayList<ArrayList<Integer>> zigzagLevelOrder(TreeNode root) {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		if( root == null )	return result;
-		ArrayList<TreeNode> current = new ArrayList<TreeNode>();
-		ArrayList<TreeNode> next = new ArrayList<TreeNode>();
-		ArrayList<Integer> temp = new ArrayList<Integer>();
+		ArrayList<TreeNode> current = new ArrayList<TreeNode>();		
 		boolean Backward = true;
 		current.add(root);
+		
 		while( !current.isEmpty() ) {
+			ArrayList<TreeNode> next = new ArrayList<TreeNode>();
+			ArrayList<Integer> temp = new ArrayList<Integer>();
 			for( TreeNode node : current )
 				temp.add(node.val);
 			result.add(temp);
