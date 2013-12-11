@@ -16,7 +16,7 @@ public class InsertionSortList {
     	return TmpHead.next;    
     }    
     private ListNode FindInsertPosition(ListNode NewList, ListNode OldList) {
-    	ListNode pre = NewList, cur = NewList.next;
+    	ListNode pre = null, cur = NewList;
     	
     	while( cur != null && cur.val <= OldList.val ) {
     		pre = cur;
