@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class UniqueBinarySearchTrees2 {
     public ArrayList<TreeNode> generateTrees(int n) {
-    	if( n == 0 )	return null;
+    	if( n == 0 )	return GenerateBST(1, n);
     	return GenerateBST(1, n);	
     }
     private ArrayList<TreeNode> GenerateBST(int start, int end) {
