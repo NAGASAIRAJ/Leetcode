@@ -2,7 +2,7 @@
 public class InsertionSortList {
     public ListNode insertionSortList(ListNode head) {
     	if( head == null )	return head;
-    	ListNode TmpHead = new ListNode(0);
+    	ListNode TmpHead = new ListNode(Integer.MIN_VALUE);
     	ListNode NewList = TmpHead, OldList = head;
     	
     	while( OldList != null ) {
