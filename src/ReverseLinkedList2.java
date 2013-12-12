@@ -7,25 +7,25 @@ public class ReverseLinkedList2 {
     	PreHead.next = head;
     	head = PreHead;
     	int count = 0;
-    	ListNode pre = null , p = head, PreMPtr = null, MPtr = null, NPtr = null;
+    	ListNode pre = null , cur = head, PreMPtr = null, MPtr = null, NPtr = null;
     	
     	while( count <= n ) {
     		if( count == m - 1 )
-    			PreMPtr = p;
+    			PreMPtr = cur;
     		else if( count == m )
-    			MPtr = p;
+    			MPtr = cur;
     		else if( count == n )
-    			NPtr = p;
-    		ListNode tmp = p.next;
+    			NPtr = cur;
+    		ListNode tmp = cur.next;
     		if( m < count && count <= n )
-    			p.next = pre;
-    		pre = p;
-    		p = tmp;
+    			cur.next = pre;
+    		pre = cur;
+    		cur = tmp;
     		count++;
     	}
     	
     	PreMPtr.next = NPtr;
-    	MPtr.next = p;
+    	MPtr.next = cur;
     	return head.next;    	
     }
 }
