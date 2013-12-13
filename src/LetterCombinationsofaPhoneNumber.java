@@ -4,8 +4,6 @@ import java.util.ArrayList;
 public class LetterCombinationsofaPhoneNumber {
     public ArrayList<String> letterCombinations(String digits) {
     	ArrayList<String> coms = new ArrayList<String>();
-    	if( digits.length() == 0 || digits == null )
-    		return coms;
     	StringBuilder com = new StringBuilder();
     	String[] board = new String[] {" ", "1", "abc", "def", 
     									"ghi", "jkl", "mno", "pqrs", 
