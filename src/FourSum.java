@@ -20,6 +20,8 @@ public class FourSum {
 						found.add(l);
 						if( TmpRes.add(found) )
 							result.add(found);
+						k++;
+						l--;
 					}
 					else if( sum < target )
 						k++;
