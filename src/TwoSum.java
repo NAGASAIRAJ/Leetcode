@@ -1,22 +1,20 @@
-import java.util.Arrays;
+import java.util.HashMap;
 
 
 public class TwoSum {
 	public int[] twoSum(int[] numbers, int target) {
 		if( numbers.length == 0 )
 			return new int[2];
-		Arrays.sort(numbers);
+		HashMap<Integer, Integer> nums = new HashMap<Integer, Integer>();
+		for( int i = 0; i < numbers.length; i++ )
+			nums.put(numbers[i], i);
 		
-		int l = 0, r = numbers.length - 1;
-		while( l < r ) {
-			if( numbers[l] + numbers[r] == target )
-				return new int[]{l + 1, r + 1};
-			else if( numbers[l] + numbers[r] < target )
-				l++;
-			else
-				r--;
+		for( int i = 0; i < numbers.length; i++ ) {
+			int searched = target - numbers[i];
+			if( nums.containsKey(searched) )
+				return new int[]{i + 1, nums.get(searched) + 1};
 		}
-		
+				
 		return new int[2];
 	}
 }
