@@ -16,10 +16,10 @@ public class FourSum {
 					int sum = num[i] + num[j] + num[k] + num[l];
 					if( sum == target ) {
 						ArrayList<Integer> found = new ArrayList<Integer>();
-						found.add(i);
-						found.add(j);
-						found.add(k);
-						found.add(l);
+						found.add(num[i]);
+						found.add(num[j]);
+						found.add(num[k]);
+						found.add(num[l]);
 						if( TmpRes.add(found) )
 							result.add(found);
 						k++;
