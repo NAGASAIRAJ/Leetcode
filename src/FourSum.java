@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class FourSum {
@@ -7,6 +8,7 @@ public class FourSum {
 		if( num == null || num.length < 4 )
 			return result;
 		HashSet<ArrayList<Integer>> TmpRes = new HashSet<ArrayList<Integer>>();
+		Arrays.sort(num);
 		for( int i = 0, iEnd = num.length - 3; i< iEnd; i++ ) {
 			for( int j = i + 1, jEnd = num.length - 2; j < jEnd; j++ ) {
 				int k = j + 1, l = num.length - 1;
