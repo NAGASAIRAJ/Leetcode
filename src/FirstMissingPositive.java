@@ -2,7 +2,7 @@
 public class FirstMissingPositive {
     public int firstMissingPositive(int[] A) {
     	for( int i = 0; i < A.length; i++ ) {
-    		while( 0 <= A[i] && A[i] != (i + 1) &&
+    		while( 0 < A[i] && A[i] != (i + 1) &&
     				A[i] <= A.length ) {
     			if( A[i] == A[ A[i] - 1 ] )
     				break;
