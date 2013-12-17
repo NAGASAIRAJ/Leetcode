@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class RecoverBinarySearchTree {
@@ -7,6 +8,7 @@ public class RecoverBinarySearchTree {
     	ArrayList<TreeNode> nodes = new ArrayList<TreeNode>();    	
     	ArrayList<Integer> values = new ArrayList<Integer>();
     	InorderTraversal(root, nodes, values);
+    	Collections.sort(values);
     	for( int i = 0; i < nodes.size(); i++ )
     		nodes.get(i).val = values.get(i);
     }
