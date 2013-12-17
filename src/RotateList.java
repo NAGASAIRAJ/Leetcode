@@ -1,7 +1,7 @@
 
 public class RotateList {
 	public ListNode rotateRight(ListNode head, int n) {
-		if( head == null )	return head;
+		if( head == null || n == 0 )	return head;
 		int len = 1;
 		ListNode it = head;
 		
