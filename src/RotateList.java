@@ -17,10 +17,7 @@ public class RotateList {
 			start += len;
 			start %= len;
 		}
-		
-		it = head;
-		start--;
-		
+				
 		while( start > 0 ) {
 			it = it.next;
 			start--;
