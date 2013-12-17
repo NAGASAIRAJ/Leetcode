@@ -8,7 +8,7 @@ public class FirstMissingPositive {
     				break;
     			int tmp = A[i];
     			A[i] = A[A[i] - 1];
-    			A[tmp - 1] = A[i];
+    			A[tmp - 1] = tmp;
     		}
     	}
     	int idx;
