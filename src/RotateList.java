@@ -10,6 +10,7 @@ public class RotateList {
 			it = it.next;
 		}
 		
+		if( n  % len == 0 ) return head;
 		it.next = head;
 		int start = (len - n) % len;
 		
