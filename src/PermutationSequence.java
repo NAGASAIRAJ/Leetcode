@@ -15,7 +15,7 @@ public class PermutationSequence {
 			k_tmp = k_tmp % count;
 			TmpStr.append(num[selected]);
 			for( int j = selected + 1; j < n; j++ )
-				num[i - 1] = num[i];			
+				num[j - 1] = num[j];			
 		}
 		return TmpStr.toString();
     }
