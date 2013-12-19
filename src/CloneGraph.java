@@ -7,13 +7,13 @@ import java.util.HashSet;
 
 public class CloneGraph {
 	Map<Integer, UndirectedGraphNode> NodeMap = new HashMap<Integer, UndirectedGraphNode>();
-	public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-		if( node == null )	return null;
-		LinkedList<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();		
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+    	if( node == null )	return null;
+		LinkedList<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
+		NodeMap.clear();
 		Set<Integer> IsFound = new HashSet<Integer>();
 		UndirectedGraphNode head = null;
 		queue.add(node);
-		NodeMap.clear();
 				
 		while( !queue.isEmpty() ) {
 			UndirectedGraphNode cur = queue.getFirst();
@@ -35,7 +35,7 @@ public class CloneGraph {
 						NodeMap.put(neighbor.label, NewNeighbor);
 						queue.addLast(neighbor);
 					}
-					cur.neighbors.add(NewNeighbor);
+					NewNode.neighbors.add(NewNeighbor);
 				}
 			}			
 		}
