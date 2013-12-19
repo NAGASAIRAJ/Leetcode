@@ -2,28 +2,42 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.LinkedList;
+import java.util.Set;
+import java.util.HashSet;
 
 public class CloneGraph {
+	Map<Integer, UndirectedGraphNode> NodeMap = new HashMap<Integer, UndirectedGraphNode>();
 	public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
 		if( node == null )	return null;
-		LinkedList<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
-		Map<Integer, UndirectedGraphNode> hashmap = new HashMap<Integer, UndirectedGraphNode>();
-		UndirectedGraphNode head = node;
-		queue.add(head);
-		hashmap.put(node.label, head);
-		
+		LinkedList<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();		
+		Set<Integer> IsFound = new HashSet<Integer>();
+		UndirectedGraphNode head = null;
+		queue.add(node);
+		NodeMap.clear();
+				
 		while( !queue.isEmpty() ) {
 			UndirectedGraphNode cur = queue.getFirst();
 			queue.removeFirst();
-			for( int i = 0; i < cur.neighbors.size(); i++ ) {
-				UndirectedGraphNode neighbor = cur.neighbors.get(i);
-				if( !hashmap.containsKey(neighbor.label) ) {
-					UndirectedGraphNode tmp = new UndirectedGraphNode(neighbor.label);
-					hashmap.put(neighbor.label, tmp);
-					queue.addLast(neighbor);
-				}
-				cur.neighbors.add(neighbor);
+			UndirectedGraphNode NewNode = NodeMap.get(cur.label);
+			if( NewNode == null ) {
+				NewNode = new UndirectedGraphNode(cur.label);
+				NodeMap.put(cur.label, NewNode);
 			}
+			if( head == null )
+				head = NewNode;
+			if( !IsFound.contains(cur.label) ) {
+				IsFound.add(cur.label);
+				for( int i = 0; i < cur.neighbors.size(); i++ ) {
+					UndirectedGraphNode neighbor = cur.neighbors.get(i);
+					UndirectedGraphNode NewNeighbor = NodeMap.get(neighbor.label);
+					if( NewNeighbor == null ) {
+						NewNeighbor = new UndirectedGraphNode(neighbor.label);
+						NodeMap.put(neighbor.label, NewNeighbor);
+						queue.addLast(neighbor);
+					}
+					cur.neighbors.add(NewNeighbor);
+				}
+			}			
 		}
 		
 		return head;
