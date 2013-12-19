@@ -24,9 +24,11 @@ public class WordSearch {
 			return false;
 		visited[i][j] = true;
 		// top, down, left, right
-		return FindWord(board, word, visited, depth + 1, i - 1, j) ||
+		boolean result = FindWord(board, word, visited, depth + 1, i - 1, j) ||
 				FindWord(board, word, visited, depth + 1, i + 1, j) ||
 				FindWord(board, word, visited, depth + 1, i, j - 1) ||
 				FindWord(board, word, visited, depth + 1, i, j + 1);
+		visited[i][j] = false;		
+		return result;
 	}
 }
