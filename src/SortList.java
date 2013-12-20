@@ -31,7 +31,7 @@ public class SortList {
 		
 		ListNode p1_tmp = p1, p2_tmp = p2;						
     	
-    	while( p1 != null && p2 != null ) {
+    	while( p1_tmp != null && p2_tmp != null ) {
     		if( p1_tmp.val < p2_tmp.val ) {
     			PointerRes.next = p1_tmp;    			
     			p1_tmp = p1_tmp.next;
