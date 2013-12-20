@@ -6,24 +6,21 @@ public class WordBreak {
 		if( s == null || dict.size() <= 0 )
 			return false;
 		int len = s.length();
-		// seg[i][j] means substring t starting from i and length is j can be
+		boolean[] seg = new boolean[len + 1];
+		seg[0] = true;
+		for( int i = 1; i <= len; i++ )
+			seg[i] = false;
+		// seg[i] means substring t starting from 0 and length is i can be
 		// segmented into dictionary words
-		boolean[][] seg = new boolean[len][len + 1];
 		for( int TmpLen = 1; TmpLen <= len; TmpLen++ ) {
-			for( int i = 0; i < len; i++ ) {
-				String t = s.substring(i, i + TmpLen);
-				if( dict.contains(t) ) {
-					seg[i][TmpLen] = true;
-					continue;
-				}
-				for( int j = 1; j < TmpLen; j++ ) {
-					if( seg[i][j] && seg[i + j][TmpLen - j] ) {
-						seg[i][TmpLen] = true;
-						break;
-					}
-				}
+			for( int i = 0; i < TmpLen; i++ ) {
+				String t = s.substring(i, TmpLen);
+				if( seg[i] && dict.contains(t) ) {
+					seg[TmpLen] = true;
+					break;
+				}				
 			}				
 		}
-		return seg[0][len];
+		return seg[len];
     }
 }
