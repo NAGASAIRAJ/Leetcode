@@ -21,7 +21,7 @@ public class DecodeWays {
 			else { // s[i] is valid
 				String TwoNum = s.substring(i - 2, i);
 				if( Integer.parseInt(TwoNum) <= 26 && 
-						Integer.parseInt(TwoNum) >= 10 )
+						Integer.parseInt(TwoNum) >= 10 ) // s[i - 1][i] is valid
 					dp[i] = dp[i - 1] + dp[i - 2];
 				else 
 					dp[i] = dp[i - 1];  
