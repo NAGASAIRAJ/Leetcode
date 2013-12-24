@@ -31,6 +31,5 @@ public class WildcardMatching {
 			j++;
 		
 		return (j == PLen);
-		
     }
 }
