@@ -8,7 +8,7 @@ public class WildcardMatching {
 		while( i < SLen ) {
 			
 			while( j < PLen && p.charAt(j) == '*' ) {
-				PStart++;
+				PStart = j++;
 				ss = i;
 			}
 			
