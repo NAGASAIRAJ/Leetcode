@@ -16,7 +16,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
     		}
     		CharIndex[it] = i;
     	}
-    	if( MaxLen < s.length() - start )
+    	if( MaxLen < s.length() - start ) // no repetition in last round
     		MaxLen = s.length() - start;
     	return MaxLen;
     }
