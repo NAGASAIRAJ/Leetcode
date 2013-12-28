@@ -8,7 +8,7 @@ public class ZigZagConversion {
     private String GenerateStr(String s, int nRows) {
     	int len = s.length();
     	StringBuffer buffer = new StringBuffer();
-    	int diff = 2 * nRows - 2;
+    	int diff = 2 * nRows - 2; // ignore 2 elements in top and bottom row
     	for( int i = 0; i < nRows && i < len; i++ ) {
     		if( i == 0 || i == nRows - 1 ) {
     			buffer.append(s.charAt(i));
