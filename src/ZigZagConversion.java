@@ -23,7 +23,7 @@ public class ZigZagConversion {
     			int index = i;
     			while( 2 * nRows - 2 * i - 2 + index < len ||
     					index + diff < len ) {
-    				if( 2 * nRows - 2 * i - 2 + index < len )
+    				if( 2 * nRows - 2 * i - 2 + index < len ) // exact distance
     					buffer.append(s.charAt(2 * nRows - 2 * i - 2 + index));
     				if( index + diff < len )
     					buffer.append(s.charAt(index + diff));
