@@ -17,7 +17,7 @@ public class MultiplyStrings {
 		}
 		int i = num.length - 1;
 		
-		while( i > 0 && num[i] == 0 )
+		while( i > 0 && num[i] == 0 ) // trim zeroes in top digits
 			i--;
 		
 		StringBuilder res = new StringBuilder();
