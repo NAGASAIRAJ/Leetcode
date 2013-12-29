@@ -17,7 +17,7 @@ public class MinimumWindowSubstring {
     		HasFound[S.charAt(end)]++;
     		if( HasFound[S.charAt(end)] <= NeedToFind[S.charAt(end)] )
     			count++;
-    		if( count == TLen ) {
+    		if( count == TLen ) { // count is total characters in T that’s met so far
     			
     			while( NeedToFind[S.charAt(start)] == 0 ||
     					HasFound[S.charAt(start)] > NeedToFind[S.charAt(start)] ) {
