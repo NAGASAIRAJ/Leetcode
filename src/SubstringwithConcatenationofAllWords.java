@@ -37,9 +37,8 @@ public class SubstringwithConcatenationofAllWords {
 			}
 			if( j == len )
 				res.add(i);
-			for( int m = 0; m < len; m++ )
-				real.put(L[m], 0);
-			
+			for( int m = 0; m < len; m++ ) // reset the real map 
+				real.put(L[m], 0);			
 		}
 		return res;
     }
