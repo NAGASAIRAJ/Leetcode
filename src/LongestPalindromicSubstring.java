@@ -8,7 +8,7 @@ public class LongestPalindromicSubstring {
 	}
 	
 	public static String longestPalindrome(String s) {
-		if( s.length() == 0 )	return "";	// try dynamic programming 
+		if( s.length() == 0 )	return "";	// try dynamic programming (summary) 
 		String LongestStr = "";
 		for( int i = 0; i < s.length() - 1; i++ ) {
 			String OddStr = ExpandAroundCenter(s, i, i);
