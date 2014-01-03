@@ -7,8 +7,8 @@ public class WildcardMatching {
 		
 		while( i < SLen ) {
 			
-			while( j < PLen && p.charAt(j) == '*' ) {
-				PStart = j++;
+			while( j < PLen && p.charAt(j) == '*' ) { // jump multiple *
+				PStart = j++; // match 0 character
 				ss = i;
 			}
 			
@@ -18,7 +18,7 @@ public class WildcardMatching {
 					return false;
 				else {
 					j = PStart + 1;
-					i = ++ss;
+					i = ++ss; // match 1 character
 				}
 			}
 			else {
@@ -27,7 +27,7 @@ public class WildcardMatching {
 			}
 		}	
 		
-		while( j < PLen && p.charAt(j) == '*' ) 
+		while( j < PLen && p.charAt(j) == '*' ) // jump multiple *
 			j++;
 		
 		return (j == PLen);
