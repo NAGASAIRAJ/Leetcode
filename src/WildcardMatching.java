@@ -14,7 +14,7 @@ public class WildcardMatching {
 			
 			if( (j == PLen) || (s.charAt(i) != p.charAt(j) &&
 					            p.charAt(j) != '?')) {
-				if( PStart < 0 )
+				if( PStart < 0 ) // no * previously
 					return false;
 				else {
 					j = PStart + 1;
