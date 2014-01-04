@@ -11,7 +11,6 @@ public class PathSum2 {
     }
     public void FindPathSum(TreeNode root, ArrayList<Integer> seqs, 
     				int CurSum, int ExpectSum, ArrayList<ArrayList<Integer>> result) {
-    	//if( root == null )	return result;
     	CurSum += root.val;
     	seqs.add(root.val);
     	boolean IsLeaf = (root.left == null) && (root.right == null);
