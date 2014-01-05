@@ -12,7 +12,7 @@ public class NQueens2 {
 	// ld for left diagonal and rd for right diagonal
     private void Queen(int row, int ld, int rd){
          int pos, p;
-         if(row != upper) {
+         if(row != upper) { // some rows need to be filled  
              pos = upper & (~(row | ld | rd));	// available slot for Q
              while( pos != 0) { // "1" for available slot              
                  p = pos & (-pos); // from right to left, the first "1" in pos
