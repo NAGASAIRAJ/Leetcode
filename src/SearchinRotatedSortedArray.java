@@ -13,13 +13,13 @@ public class SearchinRotatedSortedArray {
     		m = (l + r) / 2;
     		if( A[m] == target )
     			return m;
-    		if( A[l] <= A[m] ) {
+    		if( A[l] <= A[m] ) { // left half is sorted
     			if( A[l] <= target && target < A[m] )
     				r = m - 1;
     			else 
     				l = m + 1;
     		}
-    		else {
+    		else { // right half is sorted
     			if( A[m] < target && target <= A[r])
     				l = m + 1;
     			else 
