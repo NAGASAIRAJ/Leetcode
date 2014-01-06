@@ -5,9 +5,9 @@ public class Combinations {
 	public ArrayList<ArrayList<Integer>> combine(int n, int k) {
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 		if( k == 0 )	return result;
-		ArrayList<Integer> cominations = new ArrayList<Integer>();
+		ArrayList<Integer> combinations = new ArrayList<Integer>();
 		int depth = 1;
-		GenerateCombination(n, k, depth, cominations, result);
+		GenerateCombination(n, k, depth, combinations, result);
 		return result;
     }
 	public void GenerateCombination(int n, int k, int depth, ArrayList<Integer> combinations, 
