@@ -36,5 +36,6 @@ public class UniquePaths {
     
     public static void main(String args[]) {
     	System.out.println("Unique path number in 3 x 3 grid: " + uniquePaths(3, 3));
+    	System.out.println("Unique path number in 5 x 7 grid: " + uniquePaths(5, 7));
     }
 }
