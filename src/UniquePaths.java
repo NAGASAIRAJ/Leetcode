@@ -1,6 +1,6 @@
 
 public class UniquePaths {
-    public int uniquePaths(int m, int n) {
+    public static int uniquePaths(int m, int n) {
     	int paths[][] = new int[m+2][n+2];
     	for( int i = 0; i < m+2; i++ )
     		paths[i][n+1] = 0;
@@ -32,5 +32,9 @@ public class UniquePaths {
     	if( paths[r][c+1] == -1 )
     		paths[r][c+1] = count_path(r, c+1, m, n, paths);
     	return  (paths[r+1][c] + paths[r][c+1]);
+    }
+    
+    public static void main(String args[]) {
+    	System.out.println("Unique path number in 3 x 3 grid: " + uniquePaths(3, 3));
     }
 }
