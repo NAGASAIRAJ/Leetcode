@@ -34,11 +34,11 @@ public class WildcardMatching {
     }
 	
 	public boolean isMatch2(String s, String p) {
-	    int n = s.length(), m = p.length(), i, j, chars=0;
+        int n = s.length(), m = p.length(), i, j, chars=0;
 	    for( i = 0; i < m; ++i) 
 	    	if(p.charAt(i) != '*' && n < ++chars) 
 	    		return false;	// less non-start char in s than p 
-	    boolean[] dp = new boolean[n+2];
+	    boolean[] dp = new boolean[n+1];
 	    for(i = m-1, dp[n] = true; i >= 0; i--){
 	        if( p.charAt(i) == '*'){
 	            while( i > 0 && p.charAt(i) == p.charAt(i - 1)) 
@@ -47,7 +47,7 @@ public class WildcardMatching {
 	            for(; j >= 0; j--) 
 	            	dp[j] = true;
 	        }else{
-	            for(j = 0; j < n + 1; j++)
+	            for(j = 0; j < n; j++)
 	                dp[j] = (p.charAt(i) == s.charAt(j) || 
 	                			p.charAt(i) =='?') ? dp[j + 1] : false;
 	        }
