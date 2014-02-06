@@ -140,6 +140,7 @@ Tree
    Symmetric Tree
    Validate Binary Search Tree
 
+<p>
 ref：
    https://github.com/AnnieKim/Leetcode
    http://www.cnblogs.com/feiling/p/3269195.html
@@ -147,3 +148,5 @@ ref：
 A difficulty and frequency distribution chart:
 http://kwfeng.wordpress.com/2013/05/18/leetcode-interview-questions-online-judge-solutions/
 https://docs.google.com/spreadsheet/pub?key=0Aqt--%20wSNYfuxdGxQWVFsOGdVVWxQRlNUVXZTdEpOeEE&output=html
+</p>
+
