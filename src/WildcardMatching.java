@@ -32,4 +32,26 @@ public class WildcardMatching {
 		
 		return (j == PLen);
     }
+	
+	public boolean isMatch2(String s, String p) {
+	    int n = s.length(), m = p.length(), i, j, chars=0;
+	    for( i = 0; i < m; ++i) 
+	    	if(p.charAt(i) != '*' && n < ++chars) 
+	    		return false;	// less non-start char in s than p 
+	    boolean[] dp = new boolean[n+2];
+	    for(i = m-1, dp[n] = true; i >= 0; i--){
+	        if( p.charAt(i) == '*'){
+	            while( i > 0 && p.charAt(i) == p.charAt(i - 1)) 
+	            	--i; //skip multiple *
+	            for(j = n; j >= 0 && !dp[j]; j--);
+	            for(; j >= 0; j--) 
+	            	dp[j] = true;
+	        }else{
+	            for(j = 0; j < n + 1; j++)
+	                dp[j] = (p.charAt(i) == s.charAt(j) || 
+	                			p.charAt(i) =='?') ? dp[j + 1] : false;
+	        }
+	    }
+	    return dp[0];
+	}
 }
