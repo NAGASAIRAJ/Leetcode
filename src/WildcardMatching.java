@@ -50,6 +50,7 @@ public class WildcardMatching {
 	            for(j = 0; j < n; j++)
 	                dp[j] = (p.charAt(i) == s.charAt(j) || 
 	                			p.charAt(i) =='?') ? dp[j + 1] : false;
+	                dp[n] = false;
 	        }
 	    }
 	    return dp[0];
