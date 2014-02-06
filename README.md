@@ -1,4 +1,4 @@
-This is practice coding interview questions in <a href="leetcode.com">LeetCode.com</a> <br>
+This is practice coding interview questions in <a href="http://oj.leetcode.com/problems/">LeetCode.com</a> <br>
 All solutions (150/150) and Data Structure and Algorithm summary are provided:
 
 <h3>Dynamic Programming</h3>
