@@ -142,11 +142,11 @@ Tree
 
 <p>
 ref：
-   https://github.com/AnnieKim/Leetcode
-   http://www.cnblogs.com/feiling/p/3269195.html
+   https://github.com/AnnieKim/Leetcode <br>
+   http://www.cnblogs.com/feiling/p/3269195.html <br>
    
-A difficulty and frequency distribution chart:
-http://kwfeng.wordpress.com/2013/05/18/leetcode-interview-questions-online-judge-solutions/
-https://docs.google.com/spreadsheet/pub?key=0Aqt--%20wSNYfuxdGxQWVFsOGdVVWxQRlNUVXZTdEpOeEE&output=html
+A difficulty and frequency distribution chart: <br>
+http://kwfeng.wordpress.com/2013/05/18/leetcode-interview-questions-online-judge-solutions/ <br>
+https://docs.google.com/spreadsheet/pub?key=0Aqt--%20wSNYfuxdGxQWVFsOGdVVWxQRlNUVXZTdEpOeEE&output=html <br>
 </p>
 
