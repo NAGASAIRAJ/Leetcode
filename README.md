@@ -115,19 +115,19 @@ Binary Tree Inorder Traversal
 Binary Tree Level Order Traversal II
 Valid Parentheses
 
-<p>
-Queue
-   -Binary Tree Level Order Traversal
-   -Binary Tree Level Order Traversal II
-   -Populating Next Right Pointers in Each Node II
-   -Symmetric Tree
-   -Surrounded Regions
-   -Word Ladder
-</p>
+<h6>Queue</h6>
+<ul>
+   <li>Binary Tree Level Order Traversal</li>
+   <li>Binary Tree Level Order Traversal II</li>
+   <li>Populating Next Right Pointers in Each Node II</li>
+   <li>Symmetric Tree</li>
+   <li>Surrounded Regions</li>
+   <li>Word Ladder</li>
+</ul>
 
 <p>
 Tree<br>
-   -Balanced Binary Tree<br>
+   Balanced Binary Tree<br>
    -Binary Tree Inorder Traversal<br>
    -Binary Tree Level Order Traversal<br>
    -Binary Tree Level Order Traversal II<br>
