@@ -115,33 +115,37 @@ Binary Tree Inorder Traversal
 Binary Tree Level Order Traversal II
 Valid Parentheses
 
+<p>
 Queue
-   Binary Tree Level Order Traversal
-   Binary Tree Level Order Traversal II
-   Populating Next Right Pointers in Each Node II
-   Symmetric Tree
-   Surrounded Regions
-   Word Ladder
-
-Tree
-   Balanced Binary Tree
-   Binary Tree Inorder Traversal
-   Binary Tree Level Order Traversal
-   Binary Tree Level Order Traversal II
-   Binary Tree Maximum Path Sum
-   Convert Sorted Array to Binary Search Tree
-   Convert Sorted List to Binary Search Tree
-   Flatten Binary Tree to Linked List
-   Maximum Depth of Binary Tree
-   Minimum Depth of Binary Tree
-   Path Sum
-   Same Tree
-   Sum Root to Leaf Numbers
-   Symmetric Tree
-   Validate Binary Search Tree
+   -Binary Tree Level Order Traversal
+   -Binary Tree Level Order Traversal II
+   -Populating Next Right Pointers in Each Node II
+   -Symmetric Tree
+   -Surrounded Regions
+   -Word Ladder
+</p>
 
 <p>
-ref：
+Tree<br>
+   -Balanced Binary Tree<br>
+   -Binary Tree Inorder Traversal<br>
+   -Binary Tree Level Order Traversal<br>
+   -Binary Tree Level Order Traversal II<br>
+   -Binary Tree Maximum Path Sum<br>
+   -Convert Sorted Array to Binary Search Tree<br>
+   -Convert Sorted List to Binary Search Tree<br>
+   -Flatten Binary Tree to Linked List<br>
+   -Maximum Depth of Binary Tree<br>
+   -Minimum Depth of Binary Tree<br>
+   -Path Sum<br>
+   -Same Tree<br>
+   -Sum Root to Leaf Numbers<br>
+   -Symmetric Tree<br>
+   -Validate Binary Search Tree<br>
+</p>
+
+<p>
+ref：<br>
    https://github.com/AnnieKim/Leetcode <br>
    http://www.cnblogs.com/feiling/p/3269195.html <br>
    
