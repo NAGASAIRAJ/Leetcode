@@ -1,5 +1,5 @@
 This is practice coding interview questions in Leetcode.com <br>
-All solutions (150/150) provided and summary:
+All solutions (150/150) provided and Data Structure and Algorithm summary:
 
 <h3>Dynamic Programming</h3>
 <ul>
