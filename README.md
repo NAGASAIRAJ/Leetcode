@@ -1,4 +1,4 @@
-This is practice coding interview questions in Leetcode.com <br>
+This is practice coding interview questions in <a href="leetcode.com">LeetCode.com</a> <br>
 All solutions (150/150) and Data Structure and Algorithm summary are provided:
 
 <h3>Dynamic Programming</h3>
@@ -16,7 +16,7 @@ All solutions (150/150) and Data Structure and Algorithm summary are provided:
 <li>Palindrome Partitioning II</li>
 <li>Maximal Rectangle</li>
 </ul>
-<h3><a class="anchor" name="recursion" href="https://github.com/AnnieKim/Leetcode#recursion"></a>Recursion</h3>
+<h3><a href="https://github.com/AnnieKim/Leetcode#recursion"></a>Recursion</h3>
 <ul>
 <li>N-Queens</li>
 <li>N-Queens II</li>
@@ -55,7 +55,7 @@ All solutions (150/150) and Data Structure and Algorithm summary are provided:
 <li>Sudoku Solver</li>
 <li>Unique Binary Search Trees II</li>
 </ul>
-<h3><a class="anchor" name="binary-search" href="https://github.com/AnnieKim/Leetcode#binary-search"></a>Binary Search</h3>
+<h3><a href="https://github.com/AnnieKim/Leetcode#binary-search"></a>Binary Search</h3>
 <ul>
 <li>Search Insert Position</li>
 <li>Search a 2D Matrix</li>
@@ -63,7 +63,7 @@ All solutions (150/150) and Data Structure and Algorithm summary are provided:
 <li>Search in Rotated Sorted Array</li>
 <li>Sqrt(x)</li>
 </ul>
-<h3><a class="anchor" name="sequence" href="https://github.com/AnnieKim/Leetcode#sequence"></a>Sequence</h3>
+<h3><a href="https://github.com/AnnieKim/Leetcode#sequence"></a>Sequence</h3>
 <ul>
 <li>Container With Most Water</li>
 <li>Count and Say</li>
@@ -100,7 +100,7 @@ All solutions (150/150) and Data Structure and Algorithm summary are provided:
 <li>Trapping Rain Water</li>
 <li>Valid Number</li>
 </ul>
-<h3><a class="anchor" name="linked-list" href="https://github.com/AnnieKim/Leetcode#linked-list"></a>Linked List</h3>
+<h3><a href="https://github.com/AnnieKim/Leetcode#linked-list"></a>Linked List</h3>
 <ul>
 <li>Add Two Numbers</li>
 <li>Convert Sorted List to Binary Search Tree</li>
@@ -114,13 +114,13 @@ All solutions (150/150) and Data Structure and Algorithm summary are provided:
 <li>Rotate List</li>
 <li>Swap Nodes in Pairs</li>
 </ul>
-<h3><a class="anchor" name="stack" href="https://github.com/AnnieKim/Leetcode#stack"></a>Stack</h3>
+<h3><a href="https://github.com/AnnieKim/Leetcode#stack"></a>Stack</h3>
 <ul>
 <li>Binary Tree Inorder Traversal</li>
 <li>Binary Tree Level Order Traversal II</li>
 <li>Valid Parentheses</li>
 </ul>
-<h3><a class="anchor" name="queue" href="https://github.com/AnnieKim/Leetcode#queue"></a>Queue</h3>
+<h3><a href="https://github.com/AnnieKim/Leetcode#queue"></a>Queue</h3>
 <ul>
 <li>Binary Tree Level Order Traversal</li>
 <li>Binary Tree Level Order Traversal II</li>
@@ -129,7 +129,7 @@ All solutions (150/150) and Data Structure and Algorithm summary are provided:
 <li>Surrounded Regions</li>
 <li>Word Ladder</li>
 </ul>
-<h3><a class="anchor" name="tree" href="https://github.com/AnnieKim/Leetcode#tree"></a>Tree</h3>
+<h3><a href="https://github.com/AnnieKim/Leetcode#tree"></a>Tree</h3>
 <ul>
 <li>Balanced Binary Tree</li>
 <li>Binary Tree Inorder Traversal</li>
