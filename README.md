@@ -152,7 +152,7 @@ All solutions (150/150) provided and summary:
 ref：<br>
  
 <p><span>A&nbsp;</span><a href="https://docs.google.com/spreadsheet/pub?key=0Aqt--%20wSNYfuxdGxQWVFsOGdVVWxQRlNUVXZTdEpOeEE&amp;output=html">difficulty and frequency distribution chart</a><span>&nbsp;for each problem.</span></p>
-<p><span><a href="http://kwfeng.wordpress.com/2013/05/18/leetcode-interview-questions-online-judge-solutions/">another</a><span>
+<p><span><a href="http://kwfeng.wordpress.com/2013/05/18/leetcode-interview-questions-online-judge-solutions/">Backup link</a><span>
 
 </p>
 
