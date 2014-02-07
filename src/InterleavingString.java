@@ -20,6 +20,8 @@ public class InterleavingString {
 			j++;
 		}
 		
+		// match[m][n] denotes if s1 of length of m and s2 of length
+		// n could form s3 of length (m + n)
 		for( int m = 1; m <= len1; m++ ) {
 			for( int n = 1; n <= len2; n++ ) {
 				char c = s3.charAt(m + n - 1);
