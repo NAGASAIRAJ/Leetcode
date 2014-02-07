@@ -8,9 +8,9 @@ public class PalindromePartitioning2 {
 		boolean[][] PalindromeMatrix = new boolean[len][len];
 		for( int i = 0; i < len; i++ )
 			PalindromeMatrix[i][i] = true;
-		// DP to check every substring of s is palindrome or not
+		// PalindromeMatrix[i][j] checks string from i to j palindrome or not
 		// substring length l starts from 2 to len
-		for( int l = 2; l <= len; l++ ) {
+		for( int l = 2; l <= len; l++ ) { 
 			for( int i = 0; i < len - l + 1; i++ ) {
 				int j = i + l - 1;
 				if( l == 2 )
@@ -29,9 +29,9 @@ public class PalindromePartitioning2 {
 					if( PalindromeMatrix[i][k - 1] )
 						MinCut = Math.min(MinCut, 1 + dp[k]);
 				}
-				dp[i] = MinCut;
+				dp[i] = MinCut; 
 			}				
 		}
-		return dp[0];
+		return dp[0]; // dp[i] means from index i to end, min cut number
 	}
 }
