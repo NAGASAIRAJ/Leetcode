@@ -35,7 +35,7 @@ public class WordBreak2 {
 			int depth, ArrayList<String> res, StringBuffer StrBuf, Set<String> dict) {
 		if( depth == length ) {
 			String t = StrBuf.toString();
-			res.add(t.substring(0, t.length() - 1));
+			res.add(t.substring(0, t.length() - 1)); // remove last whitespace
 			return;
 		}
 		for( int len = 1; len <= length; len++ ) {
