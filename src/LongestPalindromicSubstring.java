@@ -8,8 +8,10 @@ public class LongestPalindromicSubstring {
 		
 		String s2_1 = "bb";
 		String s2_2 = "abb";
+		String s2_3 = "122112321";
 		System.out.println(longestPalindrome2(s2_1));
 		System.out.println(longestPalindrome2(s2_2));
+		System.out.println(longestPalindrome2(s2_3));
 	}
 	
 	public static String longestPalindrome(String s) {
@@ -55,7 +57,7 @@ public class LongestPalindromicSubstring {
 			res = res + "#" + s.charAt(i);
 		res += "#";
 		res += "$"; // string end
-		System.out.println("Preprocessed string: " + res);
+		//System.out.println("Preprocessed string: " + res);
 		return res;
 	}
 	
