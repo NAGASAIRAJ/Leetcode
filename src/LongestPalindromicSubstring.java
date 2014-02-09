@@ -68,7 +68,7 @@ public class LongestPalindromicSubstring {
 		int[] p = new int[TmpS.length()];
 		int CenterIdx = 0, MaxBound = 0;
 		for( int i = 1; i < TmpS.length() - 1; i++ ) {
-			int j = 2 * CenterIdx - i; // i's mirror index in right
+			int j = 2 * CenterIdx - i; // i's mirror index in left
 			if( MaxBound > i )
 				p[i] = Math.min(MaxBound - i, p[j]);
 			else 
