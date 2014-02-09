@@ -55,6 +55,7 @@ public class LongestPalindromicSubstring {
 			res = res + "#" + s.charAt(i);
 		res += "#";
 		res += "$"; // string end
+		System.out.println("Preprocessed string: " + res);
 		return res;
 	}
 	
@@ -87,6 +88,9 @@ public class LongestPalindromicSubstring {
 			}
 		}
 		int start = (CenterIdx - 1 - MaxLen) >> 1; 
-		return s.substring(start, start + MaxLen + 1);
+		if ( start + MaxLen == s.length() )
+			return s.substring(start);
+		else
+			return s.substring(start, start + MaxLen + 1);
 	}
 }
