@@ -92,7 +92,7 @@ public class LongestPalindromicSubstring {
 				CenterIdx = i;
 			}
 		}
-		int start = (CenterIdx - 1 - MaxLen) >> 1;
+		int start = (CenterIdx - 1 - MaxLen) >> 1; // skip the "^"
 		// System.out.println("\n start: " + start + " MaxLen: " + MaxLen);
 		if ( start + MaxLen == s.length() )
 			return s.substring(start);
