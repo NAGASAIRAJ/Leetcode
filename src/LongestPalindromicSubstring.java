@@ -5,6 +5,11 @@ public class LongestPalindromicSubstring {
 		String s2 = "abb";
 		//System.out.println(longestPalindrome(s));
 		System.out.println(longestPalindrome(s2));
+		
+		String s2_1 = "bb";
+		String s2_2 = "abb";
+		System.out.println(longestPalindrome2(s2_1));
+		System.out.println(longestPalindrome2(s2_2));
 	}
 	
 	public static String longestPalindrome(String s) {
@@ -41,5 +46,47 @@ public class LongestPalindromicSubstring {
 			r_tmp--;
 		
 		return s.substring(l_tmp, r_tmp + 1);
+	}
+	
+	public static String Preprocess(String s) {
+		String res = "";
+		res += "^"; // string start
+		for( int i = 0; i < s.length(); i++ )
+			res = res + "#" + s.charAt(i);
+		res += "#";
+		res += "$"; // string end
+		return res;
+	}
+	
+	public static String longestPalindrome2(String s) {
+		String TmpS = Preprocess(s);
+		int[] p = new int[TmpS.length()];
+		int CenterIdx = 0, MaxBound = 0;
+		for( int i = 1; i < TmpS.length() - 1; i++ ) {
+			int j = 2 * CenterIdx - i; // i's mirror index in right
+			if( MaxBound > i )
+				p[i] = Math.min(MaxBound - i, p[j]);
+			else 
+				p[i] = 0;
+			
+			while( TmpS.charAt(i - 1 - p[i]) == 
+						TmpS.charAt(i + 1 + p[i] )) 
+				p[i]++;
+			
+			if( i + p[i] > MaxBound ) {
+				MaxBound = i + p[i];
+				CenterIdx = i;
+			}
+			
+		}
+		int MaxLen = 0;
+		for( int i = 1; i < TmpS.length() - 1; i++ ) {
+			if( p[i] > MaxLen ) {
+				MaxLen = p[i];
+				CenterIdx = i;
+			}
+		}
+		int start = (CenterIdx - 1 - MaxLen) >> 1; 
+		return s.substring(start, start + MaxLen + 1);
 	}
 }
