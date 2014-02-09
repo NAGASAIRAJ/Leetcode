@@ -86,14 +86,14 @@ public class LongestPalindromicSubstring {
 		}
 		int MaxLen = 0;
 		for( int i = 1; i < TmpS.length() - 1; i++ ) {
-			System.out.print(p[i] + " ");
+			// System.out.print(p[i] + " ");
 			if( p[i] > MaxLen ) {
 				MaxLen = p[i];
 				CenterIdx = i;
 			}
 		}
 		int start = (CenterIdx - 1 - MaxLen) >> 1;
-		System.out.println("\n start: " + start + " MaxLen: " + MaxLen);
+		// System.out.println("\n start: " + start + " MaxLen: " + MaxLen);
 		if ( start + MaxLen == s.length() )
 			return s.substring(start);
 		else
