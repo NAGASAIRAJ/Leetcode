@@ -9,9 +9,11 @@ public class LongestPalindromicSubstring {
 		String s2_1 = "bb";
 		String s2_2 = "abb";
 		String s2_3 = "122112321";
+		String s2_4 = "aab";
 		System.out.println(longestPalindrome2(s2_1));
 		System.out.println(longestPalindrome2(s2_2));
 		System.out.println(longestPalindrome2(s2_3));
+		System.out.println(longestPalindrome2(s2_4));
 	}
 	
 	public static String longestPalindrome(String s) {
@@ -84,15 +86,17 @@ public class LongestPalindromicSubstring {
 		}
 		int MaxLen = 0;
 		for( int i = 1; i < TmpS.length() - 1; i++ ) {
+			System.out.print(p[i] + " ");
 			if( p[i] > MaxLen ) {
 				MaxLen = p[i];
 				CenterIdx = i;
 			}
 		}
-		int start = (CenterIdx - 1 - MaxLen) >> 1; 
+		int start = (CenterIdx - 1 - MaxLen) >> 1;
+		System.out.println("\n start: " + start + " MaxLen: " + MaxLen);
 		if ( start + MaxLen == s.length() )
 			return s.substring(start);
 		else
-			return s.substring(start, start + MaxLen + 1);
+			return s.substring(start, start + MaxLen);
 	}
 }
