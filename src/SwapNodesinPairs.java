@@ -20,4 +20,16 @@ public class SwapNodesinPairs {
     	
     	return head;
     }
+    
+    // recursive 
+    public ListNode swapPairs2(ListNode head) {
+        if(head==null||head.next==null){
+            return head;
+        }
+        ListNode headnext =head.next;
+        ListNode headnextnext=headnext.next;
+        head.next = swapPairs(headnextnext);
+        headnext.next=head;
+        return headnext;
+    }
 }
