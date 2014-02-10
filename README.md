@@ -49,7 +49,7 @@ All solutions (150/150) and Data Structure and Algorithm summary are provided:
 <li>Construct Binary Tree from Inorder and Postorder Traversal</li>
 <li>Construct Binary Tree from Preorder and Inorder Traversal</li>
 <li>Generate Parentheses</li>
-<li>Surrounded Regions (runtime error)</li>
+<li>Surrounded Regions</li>
 <li>Palindrome Partitioning</li>
 <li>Combination Sum</li>
 <li>Sudoku Solver</li>
