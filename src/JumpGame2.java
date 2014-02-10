@@ -5,9 +5,9 @@ public class JumpGame2 {
     	int len = A.length;
     	int CurMax = 0, NextMax = 0, JumpSteps = 0;
     	for( int i = 0; i < len; i++ ) {
-    		if( CurMax < i ) {
+    		if( CurMax < i ) { // cannot reach current index i
     			CurMax = NextMax; 
-    			JumpSteps++;
+    			JumpSteps++; // it takes one step to reach i first, then continue
     		}
     		NextMax = Math.max(NextMax, i + A[i] );
     	}
