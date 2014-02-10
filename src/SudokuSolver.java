@@ -36,8 +36,8 @@ public class SudokuSolver {
     		if( i != x && board[i][y] == board[x][y] )
     			return false;
     	}
-    	int XIdx = (x / 3) * 3;
-    	int YIdx = (y / 3) * 3;
+    	int XIdx = (x / 3) * 3; // offset in row index
+    	int YIdx = (y / 3) * 3; // offset in col index
     	for( int i = 0; i < 3; i++ ) {
     		for( int j = 0; j < 3; j++ ) {
     			if(i + XIdx != x && j + YIdx != y && 
