@@ -13,6 +13,9 @@ public class EditDistance {
     				if( word1.charAt(i - 1) == word2.charAt(j - 1))
     					ed[i][j] = ed[i - 1][j - 1];
     				else 
+    					// replace ch1 with ch2: 1+ ed[i-1][j-1]
+    					// insert ch2 in word2(word1+ch1, word2): 1 + ed[i][j-1j]
+    					// delete ch1 from word1(word1, word2+ch2): 1 + ed[i-1][j]
     					ed[i][j] = 1 + Math.min(ed[i - 1][j - 1], 
     							                Math.min(ed[i - 1][j], ed[i][j - 1]));
     			}
