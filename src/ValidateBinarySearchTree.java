@@ -19,11 +19,9 @@ public class ValidateBinarySearchTree {
     		return true;
     	if( !ValidateBST2(root.left) )
     		return false;
-    	//System.out.println("Previous and current val are " + pre + ", " + root.val);
     	if( root.val <= pre )
     		return false;
     	pre = root.val;
-    	//System.out.println("Previous and current val are " + pre + ", " + root.val);
     	if( !ValidateBST2(root.right) )
     		return false;
     	return true;
