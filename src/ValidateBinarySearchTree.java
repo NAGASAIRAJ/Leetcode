@@ -14,6 +14,10 @@ public class ValidateBinarySearchTree {
     }
     
     private static int pre = Integer.MIN_VALUE;
+    private static void ResetPreVal() {
+    	pre = Integer.MIN_VALUE;
+    }
+    
     private static boolean ValidateBST2(TreeNode root) {
     	if( root == null )
     		return true;
@@ -39,8 +43,7 @@ public class ValidateBinarySearchTree {
 		System.out.println("Tree is " + (ValidateBST2(root) ? "" : "not ") + 
 								"Binary Search Tree!");
 	
-		// reset pre for next test case
-    	pre = Integer.MIN_VALUE;
+		ResetPreVal(); 	// reset pre for next test case
     	
 		System.out.println("Test case 2: ");
 		TreeNode root2_1 = new TreeNode(0);
