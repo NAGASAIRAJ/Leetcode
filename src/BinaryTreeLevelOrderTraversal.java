@@ -29,4 +29,29 @@ public class BinaryTreeLevelOrderTraversal {
 		
 		return result;
 	}
+	
+	public void levelOrderHelper(TreeNode root, 
+										ArrayList<ArrayList<Integer>> lists, int level) {
+		if( root == null )	
+			return;
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		if( lists.size() == level ) {
+			list = new ArrayList<Integer>();
+			lists.add(list);
+		}
+		else
+			list = lists.get(level);
+		list.add(root.val);
+		levelOrderHelper(root.left, lists, level + 1);
+		levelOrderHelper(root.right, lists, level + 1);
+	}
+	
+	public ArrayList<ArrayList<Integer>> levelOrder2(TreeNode root) {
+		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+		if( root == null )	return result;
+		ArrayList<ArrayList<Integer>> lists = new ArrayList<ArrayList<Integer>>();
+		int depth = 0;
+		levelOrderHelper(root, lists, depth);
+		return lists;
+	}
 }
