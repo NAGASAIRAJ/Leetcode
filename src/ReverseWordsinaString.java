@@ -11,14 +11,22 @@ public class ReverseWordsinaString {
 		return head; 
 	}
     public static String reverseWords(String s) {
-    	if (s == " ")
-    		return "";
-    	if (s.length() <= 1)
+        String res = "";
+        if (s == " ")
+    		return res;
+    	int nonSpace = 0;
+    	for (int i = 0; i < s.length(); i++) {
+    	    if (s.charAt(i) != ' ') {
+        	    nonSpace++;
+    	    }
+    	}
+    	if (nonSpace == 0)
+            return res;
+        if (s.length() <= 1)
     		return s;
         String reversedWhole = reverse(s);
         //System.out.println("Reversed whole: " + reversedWhole);
         int start = 0;
-        String res = "";
         for (int i = 0; i < s.length(); i++) {
         	if (reversedWhole.charAt(i) == ' ') {
         		if (start + 1 < i) {
@@ -28,6 +36,7 @@ public class ReverseWordsinaString {
         		res += " ";
         	}
         }
+        
         if (reversedWhole.charAt(s.length() - 1) != ' ')
         	res += reverse(reversedWhole, start, s.length() - 1);
         return res;
