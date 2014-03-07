@@ -62,4 +62,38 @@ public class LargestRectangleinHistogram {
 		}
 		return maxArea;
 	}
+	
+	public int largestRectangleArea3(int[] height) {
+		int maxArea = 0;
+		int len = height.length;
+		int[] tmpHeight = new int[len + 1];
+		Stack<Integer> leftExpand = new Stack<Integer>();
+		
+		for (int i = 0; i < len; i++) {
+			tmpHeight[i] = height[i];
+		}
+		tmpHeight[len] = -1;
+		
+		for (int i = 1; i <= len; i++) {
+			if (tmpHeight[i - 1] < tmpHeight[i]) {
+				leftExpand.push(i);
+			} else {
+				int j = leftExpand.peek();
+				// maxArea for current index at (i - 1), width = i - 1 - j + 1 
+				maxArea = Math.max(maxArea, (i - j) * tmpHeight[i - 1]); 
+				
+				while (j > 0) {
+					if (tmpHeight[j - 1] < tmpHeight[i]) {
+						break;
+					} else {
+						maxArea = Math.max(maxArea, (i - leftExpand.peek()) * tmpHeight[i - 1]); 
+						j = leftExpand.pop();
+					}
+				}
+				leftExpand.push(j);
+			}
+		}
+		
+		return maxArea;
+	}
 }
