@@ -28,20 +28,23 @@ public class LargestRectangleinHistogram {
 	public int largestRectangleArea2(int[] height) {
 		int maxArea = 0;
 		int len = height.length;
+		int[] tmpHeight = new int[len + 1];
 		int[] leftExpand = new int[len];
 		int[] rightExpand = new int[len];
 		for (int i = 0; i < len; i++) {
+			tmpHeight[i] = height[i];
 			leftExpand[i] = 0;
 			rightExpand[i] = len - 1;
 		}
-		for (int i = 1; i < len; i++) {
-			if (height[i - 1] < height[i]) {
+		tmpHeight[len] = -1;
+		for (int i = 1; i <= len; i++) {
+			if (tmpHeight[i - 1] < tmpHeight[i]) {
 				leftExpand[i] = i;
 			} else {
-				int j = i;
-				rightExpand[j - 1] = i - 1;
+				rightExpand[i - 1] = i - 1;
+				int j = leftExpand[i - 1];
 				while (j > 0) {
-					if (height[j - 1] < height[i]) {
+					if (tmpHeight[j - 1] < tmpHeight[i]) {
 						break;
 					} else {
 						rightExpand[j - 1] = i - 1;
