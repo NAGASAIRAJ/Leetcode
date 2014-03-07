@@ -87,7 +87,8 @@ public class LargestRectangleinHistogram {
 					if (tmpHeight[j - 1] < tmpHeight[i]) {
 						break;
 					} else {
-						maxArea = Math.max(maxArea, (i - leftExpand.peek()) * tmpHeight[i - 1]); 
+						// maxArea for current index at (j - 1), width = i - 1 - (j - 1) + 1						
+						maxArea = Math.max(maxArea, (i - leftExpand.peek()) * tmpHeight[j - 1]); 
 						j = leftExpand.pop();
 					}
 				}
