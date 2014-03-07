@@ -11,6 +11,8 @@ public class ReverseWordsinaString {
 		return head; 
 	}
     public static String reverseWords(String s) {
+    	if (s == " ")
+    		return "";
     	if (s.length() <= 1)
     		return s;
         String reversedWhole = reverse(s);
