@@ -68,6 +68,7 @@ public class LargestRectangleinHistogram {
 		int len = height.length;
 		int[] tmpHeight = new int[len + 1];
 		Stack<Integer> leftExpand = new Stack<Integer>();
+		leftExpand.push(0); // most left expandable index 
 		
 		for (int i = 0; i < len; i++) {
 			tmpHeight[i] = height[i];
