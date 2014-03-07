@@ -12,12 +12,17 @@ public class ReverseWordsinaString {
 	}
 	
 	private static String trimSpace(String s) {
-		int spaceIdx = s.length() - 1;
+		int spaceHeadIdx = -1;
+		int spaceTailIdx = s.length();
 		
-		while (spaceIdx >= 0 && s.charAt(spaceIdx) == ' ') {
-			spaceIdx--;
-		}
-		return s.substring(0, spaceIdx + 1);
+		while (spaceHeadIdx < s.length() && s.charAt(++spaceHeadIdx) == ' ') { }
+		
+		while (spaceTailIdx >= 0 && s.charAt(--spaceTailIdx) == ' ') { }
+		
+		if (spaceTailIdx == s.length() - 1)
+			return s.substring(spaceHeadIdx);
+		else 
+			return s.substring(spaceHeadIdx, spaceHeadIdx + 1);
 	}
 	
     public static String reverseWords(String s) {
@@ -51,14 +56,17 @@ public class ReverseWordsinaString {
         
         if (reversedWhole.charAt(s.length() - 1) != ' ') {
         	res += reverse(reversedWhole, start, s.length() - 1);
-        } else {
-        	res = trimSpace(reversedWhole);
-        }
+        } 
+        
+        res = trimSpace(reversedWhole);
+        
+        System.out.println("Len: " + res.length());
         return res;
     }
     public static void main(String[] args) {
     	 String s = "the sky is blue";
     	 String s2 = " 1";
+    	 String s3 = "1 ";
     	 System.out.println("Test case 1: ");
     	 System.out.println("Before reverse: " + s);
     	 System.out.println("After reverse: " + reverseWords(s));
@@ -66,5 +74,9 @@ public class ReverseWordsinaString {
     	 System.out.println("Test case 2: ");
     	 System.out.println("Before reverse: " + s2);
     	 System.out.println("After reverse: " + reverseWords(s2));
+    	 
+    	 System.out.println("Test case 3: ");
+    	 System.out.println("Before reverse: " + s3);
+    	 System.out.println("After reverse: " + reverseWords(s3));
     }
 }
