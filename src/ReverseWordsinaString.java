@@ -100,6 +100,10 @@ public class ReverseWordsinaString {
 			}				
 		}
 		
+		if (res.equals(" ")) {
+			return res;
+		}
+		
 		if (res.charAt(res.length() - 1) == ' ') {
 			return res.substring(0, res.length() - 1);
 		} else {
@@ -116,7 +120,10 @@ public class ReverseWordsinaString {
     		return s;
  
         String tmpRes = trimSpace2(s);
-		System.out.println("tempRes: " + tmpRes + ", len: " + tmpRes.length());
+//		System.out.println("tempRes: " + tmpRes + ", len: " + tmpRes.length());
+
+		if (tmpRes.length() <= 1)
+    		return tmpRes;
 		
         int l = 0, r = tmpRes.length() - 1;
         int start = 0, end =  tmpRes.length() - 1;
@@ -154,8 +161,8 @@ public class ReverseWordsinaString {
         	    }
         	}
         	
-        	System.out.println(headStr + ", " + start + ", " + l + ", " + resStart);
-        	System.out.println(tailStr + ", " + r + ", " + end + ", " + resEnd);
+//        	System.out.println(headStr + ", " + start + ", " + l + ", " + resStart);
+//        	System.out.println(tailStr + ", " + r + ", " + end + ", " + resEnd);
         	for (int i = 0; i < tailStr.length(); i++) {
         		resChar[resStart++] = tailStr.charAt(i);
         	}
