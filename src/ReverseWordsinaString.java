@@ -104,7 +104,7 @@ public class ReverseWordsinaString {
         	    	if (l == 0 || s.charAt(l - 1) == ' ') { // 1st or consecutive spaces
         	    		continue;
         	    	} else { // end of head string
-        	    		headStr = s.substring(start, l);            	    
+        	    		headStr = s.substring(start, l);             	    
         	    		break;
         	    	}
         	    } else if (l == 0 || s.charAt(l - 1) == ' ') {
@@ -116,7 +116,11 @@ public class ReverseWordsinaString {
         	    	if (r == s.length() - 1 || s.charAt(r + 1) == ' ') { // last or consecutive spaces
         	    		continue;
         	    	} else { //head of end string
-        	    		tailStr = s.substring(r + 1, end);            	    
+        	    		if (end == s.length() - 1) {
+        	    			tailStr = s.substring(r + 1);
+        	    		} else {
+        	    			tailStr = s.substring(r + 1, end + 1);             	            	    			
+        	    		}
         	    		break;
         	    	}
         	    } else if (r == (s.length() - 1) || s.charAt(r + 1) == ' ') {
@@ -124,14 +128,22 @@ public class ReverseWordsinaString {
         	    }
         	}
         	
-        	for (int i = 0, j = start; i <= (end - r); i++) {
-        		resChar[j++] = tailStr.charAt(i);
+        	System.out.println(headStr + ", " + start + ", " + l + ", " + resStart);
+        	System.out.println(tailStr + ", " + r + ", " + end + ", " + resEnd);
+        	for (int i = 0; i < tailStr.length(); i++) {
+        		resChar[resStart++] = tailStr.charAt(i);
+        	}
+        	if (resStart < s.length() - 1) {
+        		resChar[resStart++] = ' ';
         	}
         	if (start == r) { // head and tail strings are the identical one
         		return new String(resChar);
         	} else {
-	        	for (int i = l, j = end; i >= start; i--) {
-	        		resChar[j--] = headStr.charAt(i);
+	        	for (int i = headStr.length() - 1; i >= 0; i--) {
+	        		resChar[resEnd--] = headStr.charAt(i);
+	        	}
+	        	if (resEnd >= 0) {
+	        		resChar[resEnd--] = ' ';
 	        	}
         	}        	
         	
