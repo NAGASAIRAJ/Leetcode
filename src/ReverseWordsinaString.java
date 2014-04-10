@@ -97,9 +97,13 @@ public class ReverseWordsinaString {
 		int spaceTailIdx = s.length() - 1;
 		String tmpRes = "";
 		// trim white spaces in beginning and end
-		while (spaceHeadIdx < s.length() && s.charAt(spaceHeadIdx++) == ' ') { }
+		while (spaceHeadIdx < s.length() && s.charAt(spaceHeadIdx) == ' ') { 
+			spaceHeadIdx++;
+		}
 		
-		while (spaceTailIdx >= 0 && s.charAt(spaceTailIdx--) == ' ') { }
+		while (spaceTailIdx >= 0 && s.charAt(spaceTailIdx) == ' ') { 
+			spaceTailIdx--;
+		}
 		
 		if (spaceTailIdx == s.length() - 1) {
 			tmpRes = s.substring(spaceHeadIdx);
