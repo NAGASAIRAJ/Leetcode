@@ -92,38 +92,57 @@ public class ReverseWordsinaString {
     	
         if (s.length() <= 1)
     		return s;
-        int l = 0, r = s.length() - 1;
-        int start = 0, end =  s.length() - 1;
-        int resStart = 0, resEnd =  s.length() - 1;
-        char[] resChar = new char[s.length()];
+        
+        int spaceHeadIdx = 0;
+		int spaceTailIdx = s.length() - 1;
+		String tmpRes = "";
+		// trim white spaces in beginning and end
+		while (spaceHeadIdx < s.length() && s.charAt(spaceHeadIdx++) == ' ') { }
+		
+		while (spaceTailIdx >= 0 && s.charAt(spaceTailIdx--) == ' ') { }
+		
+		if (spaceTailIdx == s.length() - 1) {
+			tmpRes = s.substring(spaceHeadIdx);
+		}
+		else {
+			if (spaceTailIdx < spaceHeadIdx) {
+				return "";
+			}
+			tmpRes =  s.substring(spaceHeadIdx, spaceTailIdx + 1);
+		}
+		
+        int l = 0, r = tmpRes.length() - 1;
+        int start = 0, end =  tmpRes.length() - 1;
+        int resStart = 0, resEnd =  tmpRes.length() - 1;
+        char[] resChar = new char[tmpRes.length()];
         
         while (l < r) {
         	String headStr = "", tailStr = "";
-        	for (; l < s.length(); l++) {
-        	    if (s.charAt(l) == ' ') {
-        	    	if (l == 0 || s.charAt(l - 1) == ' ') { // 1st or consecutive spaces
+        	for (; l < tmpRes.length(); l++) {
+        	    if (tmpRes.charAt(l) == ' ') {
+        	    	if (l == 0 || tmpRes.charAt(l - 1) == ' ') { // 1st or consecutive spaces
         	    		continue;
         	    	} else { // end of head string
-        	    		headStr = s.substring(start, l);             	    
+        	    		headStr = tmpRes.substring(start, l);             	    
         	    		break;
         	    	}
-        	    } else if (l == 0 || s.charAt(l - 1) == ' ') {
+        	    } else if (l == 0 || tmpRes.charAt(l - 1) == ' ') {
         	    	start = l;
         	    }
         	}
         	for (; r >= 0; r--) {
-        		if (s.charAt(r) == ' ') {
-        	    	if (r == s.length() - 1 || s.charAt(r + 1) == ' ') { // last or consecutive spaces
+        		if (tmpRes.charAt(r) == ' ') {
+        	    	if (r == tmpRes.length() - 1 || tmpRes.charAt(r + 1) == ' ') { // last or consecutive spaces
         	    		continue;
         	    	} else { //head of end string
-        	    		if (end == s.length() - 1) {
-        	    			tailStr = s.substring(r + 1);
+        	    		if (end == tmpRes.length() - 1) {
+        	    			tailStr = tmpRes.substring(r + 1);
         	    		} else {
-        	    			tailStr = s.substring(r + 1, end + 1);             	            	    			
+        	    			tailStr = tmpRes.substring(r + 1, end + 1);             	            	    			
         	    		}
         	    		break;
         	    	}
-        	    } else if (r == (s.length() - 1) || s.charAt(r + 1) == ' ') {
+        	    } else if (r == (tmpRes.length() - 1) || tmpRes.charAt(r + 1) == ' ') {
         	    	end = r;
         	    }
         	}
@@ -133,7 +152,7 @@ public class ReverseWordsinaString {
         	for (int i = 0; i < tailStr.length(); i++) {
         		resChar[resStart++] = tailStr.charAt(i);
         	}
-        	if (resStart < s.length() - 1) {
+        	if (resStart < tmpRes.length() - 1) {
         		resChar[resStart++] = ' ';
         	}
         	if (start == r) { // head and tail strings are the identical one
@@ -180,5 +199,17 @@ public class ReverseWordsinaString {
     	 System.out.println("Test case 1: ");
     	 System.out.println("Before reverse: " + s);
     	 System.out.println("After reverse: " + reverseWords2(s));
+    	 
+    	 System.out.println("Test case 2: ");
+    	 System.out.println("Before reverse: " + s2);
+    	 System.out.println("After reverse: " + reverseWords2(s2));
+    	 
+    	 System.out.println("Test case 3: ");
+    	 System.out.println("Before reverse: " + s3);
+    	 System.out.println("After reverse: " + reverseWords2(s3));
+    	 
+    	 System.out.println("Test case 4: ");
+    	 System.out.println("Before reverse: " + s4);
+    	 System.out.println("After reverse: " + reverseWords2(s4));
     }
 }
