@@ -85,6 +85,28 @@ public class ReverseWordsinaString {
         return res;
     }
     
+    private static String trimSpace2(String s) {
+		String res = "";
+		
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) != ' ') { // character
+				res += s.charAt(i);
+			} else {
+				if (i > 0 && s.charAt(i - 1) != ' ') { // the 1st whitespace 
+					res += s.charAt(i);
+				} else { // skip repeated whitespace
+					continue; 
+				}
+			}				
+		}
+		
+		if (res.charAt(res.length() - 1) == ' ') {
+			return res.substring(0, res.length() - 1);
+		} else {
+			return res;
+		}
+	}
+    
     public static String reverseWords2(String s) {
         String res = "";
         if (s == " ")
@@ -92,28 +114,9 @@ public class ReverseWordsinaString {
     	
         if (s.length() <= 1)
     		return s;
-        
-        int spaceHeadIdx = 0;
-		int spaceTailIdx = s.length() - 1;
-		String tmpRes = "";
-		// trim white spaces in beginning and end
-		while (spaceHeadIdx < s.length() && s.charAt(spaceHeadIdx) == ' ') { 
-			spaceHeadIdx++;
-		}
-		
-		while (spaceTailIdx >= 0 && s.charAt(spaceTailIdx) == ' ') { 
-			spaceTailIdx--;
-		}
-		
-		if (spaceTailIdx == s.length() - 1) {
-			tmpRes = s.substring(spaceHeadIdx);
-		}
-		else {
-			if (spaceTailIdx < spaceHeadIdx) {
-				return "";
-			}
-			tmpRes =  s.substring(spaceHeadIdx, spaceTailIdx + 1);
-		}
+ 
+        String tmpRes = trimSpace2(s);
+		System.out.println("tempRes: " + tmpRes + ", len: " + tmpRes.length());
 		
         int l = 0, r = tmpRes.length() - 1;
         int start = 0, end =  tmpRes.length() - 1;
