@@ -1,3 +1,4 @@
+import java.util.Stack;
 
 public class ReverseWordsinaString {
 	private static String reverse(String s) {
@@ -187,6 +188,57 @@ public class ReverseWordsinaString {
         }
         
 		return new String(resChar);
+    }
+
+    private static Stack<String> trimSpace3(String s) {
+    	Stack<String> st = new Stack<String>();
+		int start = 0;
+		
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) != ' ') { // character
+				if (i > 0 && s.charAt(i - 1) == ' ') { // start of new character
+					start = i;
+				}
+			} else {
+				if (i > 0 && s.charAt(i - 1) != ' ') { // the 1st whitespace after character 
+					st.push(s.substring(start, i));
+				} else { // skip repeated whitespace
+					continue; 
+				}
+			}				
+		} 
+		
+		return st;
+	}
+    
+    public static String reverseWords3(String s) {
+        String res = "";
+        if (s == " ")
+    		return res;
+    	
+        if (s.length() <= 1)
+    		return s;
+ 
+        Stack<String> st = trimSpace3(s);
+//		System.out.println("tempRes: " + tmpRes + ", len: " + tmpRes.length());
+
+        if (st.size() == 0) {
+        	return res;
+        }
+        
+        if (st.size() == 1) {
+        	return st.pop();
+        }
+        
+        while (!st.isEmpty()) { // reverse words
+        	res += (st.pop() + " ");
+        }
+        
+        if (!res.isEmpty()) {
+        	return res.substring(0, res.length() - 1); // trim last space
+        } else {
+        	return res;
+        }
     }
     
     public static void main(String[] args) {
