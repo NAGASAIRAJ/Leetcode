@@ -226,16 +226,11 @@ public class ReverseWordsinaString {
     		return s;
  
         Stack<String> st = trimSpace3(s);
-//		System.out.println("tempRes: " + tmpRes + ", len: " + tmpRes.length());
 
         if (st.size() == 0) {
         	return res;
         }
-/*        
-        if (st.size() == 1) {
-        	return st.pop();
-        }
- */       
+       
         while (!st.isEmpty()) { // reverse words
         	res += (st.pop() + " ");
         }
