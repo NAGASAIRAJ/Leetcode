@@ -196,24 +196,30 @@ public class ReverseWordsinaString {
 		
 		for (int i = 0; i < s.length(); i++) {
 			if (s.charAt(i) != ' ') { // character
-				if (i > 0 && s.charAt(i - 1) == ' ') { // start of new character
+				if (i > 0 && s.charAt(i - 1) == ' ') { // start of new word
 					start = i;
 				}
 			} else { // space
-				if (i > 0 && s.charAt(i - 1) != ' ') { // the 1st whitespace after character 
+				if (i > 0 && s.charAt(i - 1) != ' ') { // the 1st whitespace after word 
 					st.push(s.substring(start, i));
+					start = i + 1;
 				} else { // skip repeated whitespace
+					start = i + 1;
 					continue; 
 				}
 			}				
 		} 
+		
+		if (start < s.length()) { // last word
+			st.push(s.substring(start));
+		}
 		
 		return st;
 	}
     
     public static String reverseWords3(String s) {
         String res = "";
-        if (s == " ")
+        if (s.equals(" "))
     		return res;
     	
         if (s.length() <= 1)
