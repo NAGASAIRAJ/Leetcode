@@ -199,7 +199,7 @@ public class ReverseWordsinaString {
 				if (i > 0 && s.charAt(i - 1) == ' ') { // start of new character
 					start = i;
 				}
-			} else {
+			} else { // space
 				if (i > 0 && s.charAt(i - 1) != ' ') { // the 1st whitespace after character 
 					st.push(s.substring(start, i));
 				} else { // skip repeated whitespace
@@ -225,11 +225,11 @@ public class ReverseWordsinaString {
         if (st.size() == 0) {
         	return res;
         }
-        
+/*        
         if (st.size() == 1) {
         	return st.pop();
         }
-        
+ */       
         while (!st.isEmpty()) { // reverse words
         	res += (st.pop() + " ");
         }
@@ -247,40 +247,60 @@ public class ReverseWordsinaString {
     	 String s3 = "1 ";
     	 String s4 = "   a   b ";
     	 String s5 = "    ";
-    	 System.out.println("Test case 1: ");
+    	 System.out.println("Test case 1 in algorithm 1: ");
     	 System.out.println("Before reverse: " + s);
     	 System.out.println("After reverse: " + reverseWords(s));
     	 
-    	 System.out.println("Test case 2: ");
+    	 System.out.println("Test case 2 in algorithm 1: ");
     	 System.out.println("Before reverse: " + s2);
     	 System.out.println("After reverse: " + reverseWords(s2));
     	 
-    	 System.out.println("Test case 3: ");
+    	 System.out.println("Test case 3 in algorithm 1: ");
     	 System.out.println("Before reverse: " + s3);
     	 System.out.println("After reverse: " + reverseWords(s3));
     	 
-    	 System.out.println("Test case 4: ");
+    	 System.out.println("Test case 4 in algorithm 1: ");
     	 System.out.println("Before reverse: " + s4);
     	 System.out.println("After reverse: " + reverseWords(s4));
     	 
-    	 System.out.println("Test case 1: ");
+    	 System.out.println("Test case 1 in algorithm 2: ");
     	 System.out.println("Before reverse: " + s);
     	 System.out.println("After reverse: " + reverseWords2(s));
     	 
-    	 System.out.println("Test case 2: ");
+    	 System.out.println("Test case 2 in algorithm 2: ");
     	 System.out.println("Before reverse: " + s2);
     	 System.out.println("After reverse: " + reverseWords2(s2));
     	 
-    	 System.out.println("Test case 3: ");
+    	 System.out.println("Test case 3 in algorithm 2: ");
     	 System.out.println("Before reverse: " + s3);
     	 System.out.println("After reverse: " + reverseWords2(s3));
     	 
-    	 System.out.println("Test case 4: ");
+    	 System.out.println("Test case 4 in algorithm 2: ");
     	 System.out.println("Before reverse: " + s4);
     	 System.out.println("After reverse: " + reverseWords2(s4));
     	 
-    	 System.out.println("Test case 5: ");
+    	 System.out.println("Test case 5 in algorithm 2: ");
     	 System.out.println("Before reverse: " + s5);
     	 System.out.println("After reverse: " + reverseWords2(s5));
+    	 
+    	 System.out.println("Test case 1 in algorithm 3: ");
+    	 System.out.println("Before reverse: " + s);
+    	 System.out.println("After reverse: " + reverseWords3(s));
+    	 
+    	 System.out.println("Test case 2 in algorithm 3: ");
+    	 System.out.println("Before reverse: " + s2);
+    	 System.out.println("After reverse: " + reverseWords3(s2));
+    	 
+    	 System.out.println("Test case 3 in algorithm 3: ");
+    	 System.out.println("Before reverse: " + s3);
+    	 System.out.println("After reverse: " + reverseWords3(s3));
+    	 
+    	 System.out.println("Test case 4 in algorithm 3: ");
+    	 System.out.println("Before reverse: " + s4);
+    	 System.out.println("After reverse: " + reverseWords3(s4));
+    	 
+    	 System.out.println("Test case 5 in algorithm 3: ");
+    	 System.out.println("Before reverse: " + s5);
+    	 System.out.println("After reverse: " + reverseWords3(s5));
     }
 }
