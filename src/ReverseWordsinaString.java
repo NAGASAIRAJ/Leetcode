@@ -98,9 +98,9 @@ public class ReverseWordsinaString {
 					continue; 
 				}
 			}				
-		}
+		} System.out.println("Res: " + res + ", len: " + res.length());
 		
-		if (res.equals(" ")) {
+		if (res.equals("")) {
 			return res;
 		}
 		
@@ -194,6 +194,7 @@ public class ReverseWordsinaString {
     	 String s2 = " 1";
     	 String s3 = "1 ";
     	 String s4 = "   a   b ";
+    	 String s5 = "    ";
     	 System.out.println("Test case 1: ");
     	 System.out.println("Before reverse: " + s);
     	 System.out.println("After reverse: " + reverseWords(s));
@@ -225,5 +226,9 @@ public class ReverseWordsinaString {
     	 System.out.println("Test case 4: ");
     	 System.out.println("Before reverse: " + s4);
     	 System.out.println("After reverse: " + reverseWords2(s4));
+    	 
+    	 System.out.println("Test case 5: ");
+    	 System.out.println("Before reverse: " + s5);
+    	 System.out.println("After reverse: " + reverseWords2(s5));
     }
 }
