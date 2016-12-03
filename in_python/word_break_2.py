@@ -5,21 +5,31 @@ class Solution(object):
         :type wordDict: Set[str]
         :rtype: List[str]
         """
-        wordBreak2(s, 0, wordDict, "", "", result)
+        result = []
+        return self.wordBreak2(s, 0, wordDict, "", "", result)
         
-    def wordBreak2(inputStr, depth, wordDict, tmpWord, tmpRes, result):
-        if (depth == inputStr.length)
-            if (wordDict.contains(tmpWord))
-                tmpRes.add(" ")
-                tmpRes.add(tmpWord)
-                result.add(tmpRes)
+    def wordBreak2(self, inputStr, depth, wordDict, tmpWord, tmpRes, result):
+    	"""
+        :type inputStr: str
+        :type depth: int
+        :type wordDict: Set[str]
+        :type tmpWord: str
+        :type tmpRes: str
+        :type wordDict: Set[str]
+        :rtype result: List[str]
+        """
+        if depth == len(inputStr):
+            if tmpWord in wordDict:
+                result.append(tmpRes + " " + tmpWord)
             return
           
-        for (int i = depth; i < inputStr.length; i++)
-            tmpWord.add(inputStr.charAt(depth))
-            if (dict.contains(tmpWord))
-                tmpRes.add(" ")
-                tmpRes.add(tmpWord)
-                wordBreak2(inputStr, i+1, wordDict, tmpWord, tmpRes, result)
-                tmpRes.remove(tmpWord)
-                tmpRes.remove(" ")
+        for i in range(depth, len(inputStr)):
+            tmpWord += inputStr[depth]
+            if tmpWord in wordDict:
+                self.wordBreak2(inputStr, i+1, wordDict, tmpWord, tmpRes + " " + tmpWord, result)
+
+        return result
+
+if __name__ == "__main__":
+	sol = Solution()
+	print sol.wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"])
