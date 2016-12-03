@@ -21,15 +21,13 @@ class Solution(object):
           
         for i in range(depth, len(inputStr)):
             tmpWord += inputStr[i]
-            # print tmpRes
             if tmpWord in wordDict:
             	if i == (len(inputStr) - 1):
-                	result.append(tmpRes + " " + tmpWord)
+                	result.append(tmpRes[1:] + " " + tmpWord)
                 	break
                 else:
-            		# print tmpWord
                 	self.wordBreak2(inputStr, i+1, wordDict, "", tmpRes + " " + tmpWord, result)
-        # print result
+
         return result
 
 if __name__ == "__main__":
