@@ -18,18 +18,20 @@ class Solution(object):
         :type wordDict: Set[str]
         :rtype result: List[str]
         """
-        if depth == len(inputStr):
-            if tmpWord in wordDict:
-                result.append(tmpRes + " " + tmpWord)
-            return
           
         for i in range(depth, len(inputStr)):
-            tmpWord += inputStr[depth]
+            tmpWord += inputStr[i]
+            # print tmpRes
             if tmpWord in wordDict:
-                self.wordBreak2(inputStr, i+1, wordDict, tmpWord, tmpRes + " " + tmpWord, result)
-
+            	if i == (len(inputStr) - 1):
+                	result.append(tmpRes + " " + tmpWord)
+                	break
+                else:
+            		# print tmpWord
+                	self.wordBreak2(inputStr, i+1, wordDict, "", tmpRes + " " + tmpWord, result)
+        # print result
         return result
 
 if __name__ == "__main__":
 	sol = Solution()
-	print sol.wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"])
+	print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
