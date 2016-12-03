@@ -6,7 +6,14 @@ class Solution(object):
         :rtype: List[str]
         """
         result = []
-        return self.wordBreak2(s, 0, wordDict, "", "", result)
+        if len(s) == 1:
+            if s in wordDict:
+                result.append(s)
+                return result
+            else:
+                return result
+        else:
+            return self.wordBreak2(s, 0, wordDict, "", "", result)
         
     def wordBreak2(self, inputStr, depth, wordDict, tmpWord, tmpRes, result):
     	"""
@@ -32,4 +39,5 @@ class Solution(object):
 
 if __name__ == "__main__":
 	sol = Solution()
+	print sol.wordBreak("a", {"a"})
 	print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
