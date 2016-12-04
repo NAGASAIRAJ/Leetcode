@@ -29,8 +29,11 @@ class Solution(object):
         for i in range(depth, len(inputStr)):
             tmpWord += inputStr[i]
             if tmpWord in wordDict:
-            	if i == (len(inputStr) - 1):
-                	result.append(tmpRes[1:] + " " + tmpWord)
+                if i == (len(inputStr) - 1):
+            		if not tmpRes:
+            			result.append(tmpWord)
+            		else:
+                	    result.append(tmpRes[1:] + " " + tmpWord)
                 	break
                 else:
                 	self.wordBreak2(inputStr, i+1, wordDict, "", tmpRes + " " + tmpWord, result)
@@ -38,6 +41,8 @@ class Solution(object):
         return result
 
 if __name__ == "__main__":
-	sol = Solution()
-	print sol.wordBreak("a", {"a"})
-	print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
+    sol = Solution()
+    print sol.wordBreak("a", {"a"})
+    print sol.wordBreak("apple", {"pear","apple","peach"})
+    print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
+    print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"})
