@@ -22,6 +22,7 @@ class Solution(object):
     def wordBreak2(self, inputStr, strLen, depth, wordDict, tmpRes, result):
     	"""
         :type inputStr: str
+        :type strLen: int
         :type depth: int
         :type wordDict: Set[str]
         :type tmpWord: str
