@@ -13,9 +13,9 @@ class Solution(object):
             else:
                 return result
         else:
-            return self.wordBreak2(s, 0, wordDict, "", "", result)
+            return self.wordBreak2(s, 0, wordDict, "", result)
         
-    def wordBreak2(self, inputStr, depth, wordDict, tmpWord, tmpRes, result):
+    def wordBreak2(self, inputStr, depth, wordDict, tmpRes, result):
     	"""
         :type inputStr: str
         :type depth: int
@@ -25,7 +25,7 @@ class Solution(object):
         :type wordDict: Set[str]
         :rtype result: List[str]
         """
-          
+        tmpWord = ""  
         for i in range(depth, len(inputStr)):
             tmpWord += inputStr[i]
             if tmpWord in wordDict:
@@ -36,7 +36,7 @@ class Solution(object):
                 	    result.append(tmpRes[1:] + " " + tmpWord)
                 	break
                 else:
-                	self.wordBreak2(inputStr, i+1, wordDict, "", tmpRes + " " + tmpWord, result)
+                	self.wordBreak2(inputStr, i+1, wordDict, tmpRes + " " + tmpWord, result)
 
         return result
 
@@ -45,4 +45,4 @@ if __name__ == "__main__":
     print sol.wordBreak("a", {"a"})
     print sol.wordBreak("apple", {"pear","apple","peach"})
     print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
-    print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"})
+    # print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"})
