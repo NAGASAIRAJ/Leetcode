@@ -13,7 +13,10 @@ class Solution(object):
             else:
                 return result
         else:
-            return self.wordBreak2(s, 0, wordDict, "", result)
+            if self.checkChar(s, wordDict):
+                return self.wordBreak2(s, 0, wordDict, "", result)
+            else:
+                return result
         
     def wordBreak2(self, inputStr, depth, wordDict, tmpRes, result):
     	"""
@@ -40,9 +43,23 @@ class Solution(object):
 
         return result
 
+    def checkChar(self, inputStr, wordDict):
+        charSet = set()
+        for word in wordDict:
+            for i in range(len(word)):
+                charSet.add(word[i])
+
+        for i in range(len(inputStr)):
+            if inputStr[i] in charSet:
+                continue
+            else:
+                return False
+
+        return True
+
 if __name__ == "__main__":
     sol = Solution()
     print sol.wordBreak("a", {"a"})
     print sol.wordBreak("apple", {"pear","apple","peach"})
     print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
-    # print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"})
+    print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"})
