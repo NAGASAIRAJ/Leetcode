@@ -6,19 +6,20 @@ class Solution(object):
         :rtype: List[str]
         """
         result = []
-        if len(s) == 1:
+        sLen = len(s)
+        if sLen == 1:
             if s in wordDict:
                 result.append(s)
                 return result
             else:
                 return result
         else:
-            if self.checkChar(s, wordDict):
-                return self.wordBreak2(s, 0, wordDict, "", result)
+            if self.checkChar(s, sLen, wordDict):
+                return self.wordBreak2(s, sLen, 0, wordDict, "", result)
             else:
                 return result
         
-    def wordBreak2(self, inputStr, depth, wordDict, tmpRes, result):
+    def wordBreak2(self, inputStr, strLen, depth, wordDict, tmpRes, result):
     	"""
         :type inputStr: str
         :type depth: int
@@ -29,27 +30,27 @@ class Solution(object):
         :rtype result: List[str]
         """
         tmpWord = ""  
-        for i in range(depth, len(inputStr)):
+        for i in range(depth, strLen):
             tmpWord += inputStr[i]
             if tmpWord in wordDict:
-                if i == (len(inputStr) - 1):
+                if i == (strLen - 1):
             		if not tmpRes:
             			result.append(tmpWord)
             		else:
                 	    result.append(tmpRes[1:] + " " + tmpWord)
                 	break
                 else:
-                	self.wordBreak2(inputStr, i+1, wordDict, tmpRes + " " + tmpWord, result)
+                	self.wordBreak2(inputStr, strLen, i+1, wordDict, tmpRes + " " + tmpWord, result)
 
         return result
 
-    def checkChar(self, inputStr, wordDict):
+    def checkChar(self, inputStr, strLen, wordDict):
         charSet = set()
         for word in wordDict:
             for i in range(len(word)):
                 charSet.add(word[i])
 
-        for i in range(len(inputStr)):
+        for i in range(strLen):
             if inputStr[i] in charSet:
                 continue
             else:
@@ -63,3 +64,4 @@ if __name__ == "__main__":
     print sol.wordBreak("apple", {"pear","apple","peach"})
     print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
     print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"})
+    print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa","ba"})
