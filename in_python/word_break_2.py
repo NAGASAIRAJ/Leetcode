@@ -5,6 +5,7 @@ class Solution(object):
         :type wordDict: Set[str]
         :rtype: List[str]
         """
+        curWordSet = set()
         result = []
         sLen = len(s)
         if sLen == 1:
@@ -15,11 +16,11 @@ class Solution(object):
                 return result
         else:
             if self.checkChar(s, sLen, wordDict):
-                return self.wordBreak2(s, sLen, 0, wordDict, "", result)
+                return self.wordBreak2(s, sLen, 0, curWordSet, wordDict, "", result)
             else:
                 return result
         
-    def wordBreak2(self, inputStr, strLen, depth, wordDict, tmpRes, result):
+    def wordBreak2(self, inputStr, strLen, depth, curWordSet, wordDict, tmpRes, result):
     	"""
         :type inputStr: str
         :type strLen: int
@@ -33,7 +34,7 @@ class Solution(object):
         tmpWord = ""  
         for i in range(depth, strLen):
             tmpWord += inputStr[i]
-            if tmpWord in wordDict:
+            if tmpWord in wordDict || tmpWord in wordDict:
                 if i == (strLen - 1):
             		if not tmpRes:
             			result.append(tmpWord)
@@ -41,7 +42,8 @@ class Solution(object):
                 	    result.append(tmpRes[1:] + " " + tmpWord)
                 	break
                 else:
-                	self.wordBreak2(inputStr, strLen, i+1, wordDict, tmpRes + " " + tmpWord, result)
+                    curWordSet.add(tmpWord)
+                	self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, result)
 
         return result
 
