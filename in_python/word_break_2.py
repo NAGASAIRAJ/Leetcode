@@ -34,7 +34,7 @@ class Solution(object):
         tmpWord = ""  
         for i in range(depth, strLen):
             tmpWord += inputStr[i]
-            if tmpWord in wordDict || tmpWord in wordDict:
+            if tmpWord in curWordSet or tmpWord in wordDict:
                 if i == (strLen - 1):
             		if not tmpRes:
             			result.append(tmpWord)
@@ -43,7 +43,7 @@ class Solution(object):
                 	break
                 else:
                     curWordSet.add(tmpWord)
-                	self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, result)
+                    self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, result)
 
         return result
 
