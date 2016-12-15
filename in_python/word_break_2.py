@@ -46,8 +46,8 @@ class Solution(object):
                 	break
                 else:
                     curWordSet.add(tmpWord)
-                    subStrRes = self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, cacheBuffer, result)
-                    cacheBuffer[inputStr[0:i]] = subStrRes
+                    self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, cacheBuffer, result)
+                    cacheBuffer[inputStr[0:i]] = (tmpRes + " " + tmpWord)
 
         return result
 
