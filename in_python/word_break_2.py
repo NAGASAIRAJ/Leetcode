@@ -16,11 +16,12 @@ class Solution(object):
                 return result
         else:
             if self.checkChar(s, sLen, wordDict):
-                return self.wordBreak2(s, sLen, 0, curWordSet, wordDict, "", result)
+            	cacheBuffer = {}
+                return self.wordBreak2(s, sLen, 0, curWordSet, wordDict, "", cacheBuffer, result)
             else:
                 return result
         
-    def wordBreak2(self, inputStr, strLen, depth, curWordSet, wordDict, tmpRes, result):
+    def wordBreak2(self, inputStr, strLen, depth, curWordSet, wordDict, tmpRes, cacheBuffer, result):
     	"""
         :type inputStr: str
         :type strLen: int
@@ -31,6 +32,8 @@ class Solution(object):
         :type wordDict: Set[str]
         :rtype result: List[str]
         """
+        if inputStr[depth:] in cacheBuffer:
+        	return cacheBuffer[inputStr[depth:]]
         tmpWord = ""  
         for i in range(depth, strLen):
             tmpWord += inputStr[i]
@@ -43,7 +46,8 @@ class Solution(object):
                 	break
                 else:
                     curWordSet.add(tmpWord)
-                    self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, result)
+                    subStrRes = self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, cacheBuffer, result)
+                    cacheBuffer[inputStr[0:i]] = subStrRes
 
         return result
 
