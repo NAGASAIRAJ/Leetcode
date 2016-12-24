@@ -35,6 +35,8 @@ class Solution(object):
                 else:
                     if not self.is_matched(stack.peek(), p):
                         return False
+                    else:
+                        stack.pop()
 
         return stack.is_empty()
 
