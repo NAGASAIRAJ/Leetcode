@@ -24,31 +24,13 @@ class Solution(object):
         :rtype: int
         """
         operand_stack = Stack()
-        operators = "+-*/"
-        i = 0
-        l = len(tokens)
-        while i < l:
-            if tokens[i] in operators:
-                if i < l - 1 and tokens[i+1] in operators:
-                    a = operand_stack.pop()
-                    b = operand_stack.pop()
-                    operand_stack.push(self.calculate(tokens[i], int(a), int(b)))
-                    i += 1
-                elif i == l - 1:
-                    a = operand_stack.pop()
-                    b = operand_stack.pop()
-                    operand_stack.push(self.calculate(tokens[i], int(a), int(b)))
-                    i += 1
-                else:
-                    j = i + 1
-                    while (tokens[j] not in operators):
-                        j += 1
-
-                    operand_stack.push(int(''.join(tokens[i:j])))
-                    i = j
+        for c in tokens:
+            if c in "+-*/":
+                a = operand_stack.pop()
+                b = operand_stack.pop()
+                operand_stack.push(self.calculate(c, int(a), int(b)))
             else:
-                operand_stack.push(tokens[i])
-                i += 1
+                operand_stack.push(c)
 
         return int(operand_stack.pop())
 
