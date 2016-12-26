@@ -41,6 +41,8 @@ class Solution(object):
             return b - a
         elif operator == "*":
             return a * b
+        elif a * b < 0:
+            return -(abs(b) / abs(a))
         else:
             return b / a
 
