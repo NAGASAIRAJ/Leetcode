@@ -25,8 +25,6 @@ class Solution(object):
                 elif board[x][y] == 'P':
                     board[x][y] = 'O'
 
-        return board
-
     def helper_func(self, x, y, visited, board):
         col = len(board[0])
         row = len(board)
