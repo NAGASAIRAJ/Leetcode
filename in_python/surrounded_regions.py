@@ -28,7 +28,6 @@ class Solution(object):
         return board
 
     def helper_func(self, x, y, visited, board):
-        print "%d, %d" %(x, y)
         col = len(board[0])
         row = len(board)
         if x < 0 or y < 0 or x >= row or y >= col or visited[x][y] == 1 or board[x][y] == 'X':
