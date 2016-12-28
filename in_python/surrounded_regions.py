@@ -14,9 +14,9 @@ class Solution(object):
 
         for x in range(h):
             if board[x][0] == 'O':
-                self.helper_func(0, y, visited, board)
+                self.helper_func(x, 0, visited, board)
             if board[x][w-1] == 'O':
-                self.helper_func(h-1, y, visited, board)
+                self.helper_func(x, w-1, visited, board)
 
         for x in range(h):
             for y in range(w):
@@ -28,7 +28,10 @@ class Solution(object):
         return board
 
     def helper_func(self, x, y, visited, board):
-        if x < 0 or y < 0 or visited[x][y] == 1 or board[x][y] == 'X':
+        print "%d, %d" %(x, y)
+        col = len(board[0])
+        row = len(board)
+        if x < 0 or y < 0 or x >= row or y >= col or visited[x][y] == 1 or board[x][y] == 'X':
             return
         else:
             visited[x][y] = 1
