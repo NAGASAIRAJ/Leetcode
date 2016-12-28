@@ -4,6 +4,8 @@ class Solution(object):
         :type board: List[List[str]]
         :rtype: void Do not return anything, modify board in-place instead.
         """
+        if len(board) == 0:
+            return
         w, h = len(board[0]), len(board)
         visited = [[0 for x in range(w)] for y in range(h)]
         for y in range(w):
