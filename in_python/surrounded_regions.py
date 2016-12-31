@@ -7,7 +7,6 @@ class Solution(object):
         if len(board) == 0:
             return
         w, h = len(board[0]), len(board)
-        print "%d, %d" %(w, h)
         for j in range(w):
             if board[0][j] == 'O':
                 self.replace_in_board(board, 0, j, 'O', 'P')
@@ -19,9 +18,6 @@ class Solution(object):
                 self.replace_in_board(board, i, 0, 'O', 'P')
             if board[i][w - 1] == 'O':
                 self.replace_in_board(board, i, w - 1, 'O', 'P')
-
-        print 'After preprocessing: '
-        print ''.join(board)
 
         for i in range(1, h):
             for j in range(1, w):
@@ -35,9 +31,6 @@ class Solution(object):
                     if board[i][j] == 'O':
                         self.replace_in_board(board, i, j, 'O', 'P')
 
-        print 'After DP: '
-        print ''.join(board)
-
         for x in range(h):
             for y in range(w):
                 if board[x][y] == 'O':
@@ -48,12 +41,48 @@ class Solution(object):
                     continue
 
     def replace_in_board(self, board, x, y, old, new):
-        print "%d, %d, %s" %(x, y, board[x][y])
         newColStr = board[x][y].replace(old, new)
-        print 'new str: ' + newColStr + ', old: ' + old
         board.insert(x + 1, board[x].replace(board[x][y], newColStr))
         del board[x]
-        print 'new col str: ' + board[x][y]
+
+    def solve_lc_version(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: void Do not return anything, modify board in-place instead.
+        """
+        if len(board) == 0:
+            return
+        w, h = len(board[0]), len(board)
+        for j in range(w):
+            if board[0][j] == 'O':
+                board[0][j] = 'P'
+            if board[h - 1][j] == 'O':
+                board[h - 1][j] = 'P'
+
+        for i in range(h):
+            if board[i][0] == 'O':
+                board[i][0] = 'P'
+            if board[i][w - 1] == 'O':
+                board[i][w - 1] = 'P'
+
+        for i in range(1, h):
+            for j in range(1, w):
+                if board[i - 1][j] == 'P' or board[i][j - 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+
+        for i in range(h - 2, 0, -1):
+            for j in range(w - 2, 0, -1):
+                if board[i + 1][j] == 'P' or board[i][j + 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+
+        for x in range(h):
+            for y in range(w):
+                if board[x][y] == 'O':
+                    board[x][y] = 'X'
+                elif board[x][y] == 'P':
+                    board[x][y] = 'O'
 
     def solve0(self, board):
         """
