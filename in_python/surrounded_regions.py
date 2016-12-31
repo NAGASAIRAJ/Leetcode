@@ -81,27 +81,57 @@ class Solution(object):
             if board[i][w - 1] == 'O':
                 board[i][w - 1] = 'P'
 
-        for k in range(2):
-            for i in range(1, h):
-                for j in range(1, w):
-                    if board[i - 1][j] == 'P' or board[i][j - 1] == 'P':
-                        if board[i][j] == 'O':
-                            board[i][j] = 'P'
-            for i in range(h - 2, 0, -1):
-                for j in range(w - 2, 0, -1):
-                    if board[i + 1][j] == 'P' or board[i][j + 1] == 'P':
-                        if board[i][j] == 'O':
-                            board[i][j] = 'P'
-            for i in range(1, h):
-                for j in range(w - 2, 0, -1):
-                    if board[i - 1][j] == 'P' or board[i][j + 1] == 'P':
-                        if board[i][j] == 'O':
-                            board[i][j] = 'P'
-            for i in range(h - 2, 0, -1):
-                for j in range(1, w):
-                    if board[i + 1][j] == 'P' or board[i][j - 1] == 'P':
-                        if board[i][j] == 'O':
-                            board[i][j] = 'P'
+        # round 1, top left bottom right direction first, top right bottom left direction second
+        # top left to bottom right
+        for i in range(1, h):
+            for j in range(1, w):
+                if board[i - 1][j] == 'P' or board[i][j - 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+        # bottom right to top left
+        for i in range(h - 2, 0, -1):
+            for j in range(w - 2, 0, -1):
+                if board[i + 1][j] == 'P' or board[i][j + 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+        # top right to bottom left
+        for i in range(1, h):
+            for j in range(w - 2, 0, -1):
+                if board[i - 1][j] == 'P' or board[i][j + 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+        # bottom left to top right
+        for i in range(h - 2, 0, -1):
+            for j in range(1, w):
+                if board[i + 1][j] == 'P' or board[i][j - 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+
+        # round 2, top right bottom left direction first, top left bottom right direction second
+        # top right to bottom left
+        for i in range(1, h):
+            for j in range(w - 2, 0, -1):
+                if board[i - 1][j] == 'P' or board[i][j + 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+        # bottom left to top right
+        for i in range(h - 2, 0, -1):
+            for j in range(1, w):
+                if board[i + 1][j] == 'P' or board[i][j - 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+        # top left to bottom right
+        for i in range(1, h):
+            for j in range(1, w):
+                if board[i - 1][j] == 'P' or board[i][j - 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+        # bottom right to top left
+        for i in range(h - 2, 0, -1):
+            for j in range(w - 2, 0, -1):
+                if board[i + 1][j] == 'P' or board[i][j + 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
 
         for x in range(h):
             for y in range(w):
@@ -169,6 +199,10 @@ if __name__ == "__main__":
     print board
 
     # scan twice from every diagonals
+    board = ["XXXXXXXXXXXXXXXXXXXX","XXXXXXXXXOOOXXXXXXXX","XXXXXOOOXOXOXXXXXXXX","XXXXXOXOXOXOOOXXXXXX","XXXXXOXOOOXXXXXXXXXX","XXXXXOXXXXXXXXXXXXXX"]
+    sol.solve(board)
+    print board
+
     board = ["XXXXXXXXXXXXXXXXXXXX","XXXXXXXXXOOOXXXXXXXX","XXXXXOOOXOXOXXXXXXXX","XXXXXOXOXOXOOOXXXXXX","XXXXXOXOOOXXXXXXXXXX","XXXXXOXXXXXXXXXXXXXX"]
     sol.solve(board)
     print board
