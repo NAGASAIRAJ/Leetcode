@@ -31,6 +31,18 @@ class Solution(object):
                     if board[i][j] == 'O':
                         self.replace_in_board(board, i, j, 'O', 'P')
 
+        for i in range(1, h):
+            for j in range(w - 2, 0, -1):
+                if board[i - 1][j] == 'P' or board[i][j + 1] == 'P':
+                    if board[i][j] == 'O':
+                        self.replace_in_board(board, i, j, 'O', 'P')
+
+        for i in range(h - 2, 0, -1):
+            for j in range(1, w):
+                if board[i + 1][j] == 'P' or board[i][j - 1] == 'P':
+                    if board[i][j] == 'O':
+                        self.replace_in_board(board, i, j, 'O', 'P')
+
         for x in range(h):
             for y in range(w):
                 if board[x][y] == 'O':
@@ -74,6 +86,18 @@ class Solution(object):
         for i in range(h - 2, 0, -1):
             for j in range(w - 2, 0, -1):
                 if board[i + 1][j] == 'P' or board[i][j + 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+
+        for i in range(1, h):
+            for j in range(w - 2, 0, -1):
+                if board[i - 1][j] == 'P' or board[i][j + 1] == 'P':
+                    if board[i][j] == 'O':
+                        board[i][j] = 'P'
+
+        for i in range(h - 2, 0, -1):
+            for j in range(1, w):
+                if board[i + 1][j] == 'P' or board[i][j - 1] == 'P':
                     if board[i][j] == 'O':
                         board[i][j] = 'P'
 
