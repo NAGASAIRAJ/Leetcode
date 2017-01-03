@@ -39,7 +39,9 @@ class Solution(object):
                 elif (tmpRes[1:] + " " + cacheBuffer[inputStr[depth:]]) not in result:
                     result.append(tmpRes[1:] + " " + cacheBuffer[inputStr[depth:]])
             else:
-                return cacheBuffer[inputStr[depth:]]
+                self.wordBreak2(inputStr, strLen, depth + 1, curWordSet, wordDict, tmpRes + " " + cacheBuffer[inputStr[depth:]], cacheBuffer,
+                                result)
+                return result
         tmpWord = ""  
         for i in range(depth, strLen):
             tmpWord += inputStr[i]
