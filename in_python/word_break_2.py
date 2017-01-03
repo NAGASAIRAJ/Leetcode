@@ -16,13 +16,13 @@ class Solution(object):
                 return result
         else:
             if self.checkChar(s, sLen, wordDict):
-            	cacheBuffer = {}
+                cacheBuffer = {}
                 return self.wordBreak2(s, sLen, 0, curWordSet, wordDict, "", cacheBuffer, result)
             else:
                 return result
         
     def wordBreak2(self, inputStr, strLen, depth, curWordSet, wordDict, tmpRes, cacheBuffer, result):
-    	"""
+        """
         :type inputStr: str
         :type strLen: int
         :type depth: int
@@ -33,17 +33,17 @@ class Solution(object):
         :rtype result: List[str]
         """
         if inputStr[depth:] in cacheBuffer:
-        	return cacheBuffer[inputStr[depth:]]
+            return cacheBuffer[inputStr[depth:]]
         tmpWord = ""  
         for i in range(depth, strLen):
             tmpWord += inputStr[i]
             if tmpWord in curWordSet or tmpWord in wordDict:
                 if i == (strLen - 1):
-            		if not tmpRes:
-            			result.append(tmpWord)
-            		else:
-                	    result.append(tmpRes[1:] + " " + tmpWord)
-                	break
+                    if not tmpRes:
+                        result.append(tmpWord)
+                    else:
+                        result.append(tmpRes[1:] + " " + tmpWord)
+                    break
                 else:
                     curWordSet.add(tmpWord)
                     self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, cacheBuffer, result)
