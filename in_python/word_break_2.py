@@ -48,6 +48,7 @@ class Solution(object):
                     curWordSet.add(tmpWord)
                     cacheBuffer[inputStr[0:i]] = (tmpRes + " " + tmpWord)
                     self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, cacheBuffer, result)
+                    del cacheBuffer[inputStr[0:i]]
 
         return result
 
