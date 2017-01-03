@@ -33,7 +33,13 @@ class Solution(object):
         :rtype result: List[str]
         """
         if inputStr[depth:] in cacheBuffer:
-            return cacheBuffer[inputStr[depth:]]
+            if depth == (strLen - 1):
+                if not tmpRes:
+                    result.append(cacheBuffer[inputStr[depth:]])
+                else:
+                    result.append(tmpRes[1:] + " " + cacheBuffer[inputStr[depth:]])
+            else:
+                return cacheBuffer[inputStr[depth:]]
         tmpWord = ""  
         for i in range(depth, strLen):
             tmpWord += inputStr[i]
@@ -46,9 +52,9 @@ class Solution(object):
                     break
                 else:
                     curWordSet.add(tmpWord)
-                    cacheBuffer[inputStr[0:i]] = (tmpRes + " " + tmpWord)
+                    cacheBuffer[inputStr[0:i+1]] = (tmpRes + " " + tmpWord)
                     self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, cacheBuffer, result)
-                    del cacheBuffer[inputStr[0:i]]
+                    del cacheBuffer[inputStr[0:i+1]]
 
         return result
 
