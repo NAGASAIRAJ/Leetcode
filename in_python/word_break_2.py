@@ -36,7 +36,7 @@ class Solution(object):
             if depth == (strLen - 1):
                 if not tmpRes:
                     result.append(cacheBuffer[inputStr[depth:]])
-                else:
+                elif (tmpRes[1:] + " " + cacheBuffer[inputStr[depth:]]) not in result:
                     result.append(tmpRes[1:] + " " + cacheBuffer[inputStr[depth:]])
             else:
                 return cacheBuffer[inputStr[depth:]]
@@ -47,12 +47,15 @@ class Solution(object):
                 if i == (strLen - 1):
                     if not tmpRes:
                         result.append(tmpWord)
-                    else:
+                    elif (tmpRes[1:] + " " + tmpWord) not in result:
                         result.append(tmpRes[1:] + " " + tmpWord)
                     break
                 else:
                     curWordSet.add(tmpWord)
-                    cacheBuffer[inputStr[0:i+1]] = (tmpRes + " " + tmpWord)
+                    if not tmpRes:
+                        cacheBuffer[inputStr[0:i+1]] = tmpWord
+                    else:
+                        cacheBuffer[inputStr[0:i+1]] = (tmpRes[1:] + " " + tmpWord)
                     self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, cacheBuffer, result)
                     del cacheBuffer[inputStr[0:i+1]]
 
@@ -77,6 +80,7 @@ if __name__ == "__main__":
     print sol.wordBreak("a", {"a"})
     print sol.wordBreak("apple", {"pear","apple","peach"})
     print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
+    print sol.wordBreak("bb", {"a","b","bbb","bbbb"})
     # TODO: need debug when add cache
     print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"})
     print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa","ba"})
