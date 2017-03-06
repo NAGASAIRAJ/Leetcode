@@ -17,8 +17,9 @@ class Solution(object):
         else:
             if self.check_char(s, s_len, word_dict):
                 cache_buffer = {}
-                return self.word_break_2(s, s_len, 0, cur_word_set, word_dict, "", "", cache_buffer, result)
+                # return self.word_break_2(s, s_len, 0, cur_word_set, word_dict, "", "", cache_buffer, result)
                 # return self.wordBreak3(s, s_len, 0, word_dict, "", "", result)
+                return self.word_break_4(s, s_len, 0, word_dict, "", "", cache_buffer, result)
             else:
                 return result
         
@@ -192,10 +193,11 @@ class Solution(object):
                 else:
                     if tmp_word in word_dict:
                         cache_buffer[input_str[0:i + 1]] = tmp_word
-                        self.word_break_3(input_str, str_len, i + 1, word_dict, "", tmp_res + " " + tmp_word, result)
+                        self.word_break_4(input_str, str_len, i + 1, word_dict, "", tmp_res + " " + tmp_word,
+                                          cache_buffer, result)
                     else:
                         cache_buffer[input_str[0:i + 1]] = (tmp_res[1:] + " " + tmp_word)
-                        self.word_break_3(input_str, str_len, i + 1, word_dict, tmp_word, tmp_res, result)
+                        self.word_break_4(input_str, str_len, i + 1, word_dict, tmp_word, tmp_res, cache_buffer, result)
                     del cache_buffer[input_str[0:i + 1]]
                 print "tmp_word: " + tmp_word
                 print "tmp_res: " + tmp_res
