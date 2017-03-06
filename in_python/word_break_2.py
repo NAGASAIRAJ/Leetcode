@@ -17,12 +17,12 @@ class Solution(object):
         else:
             if self.checkChar(s, sLen, wordDict):
                 cacheBuffer = {}
-                # return self.wordBreak2(s, sLen, 0, curWordSet, wordDict, "", cacheBuffer, result)
-                return self.wordBreak3(s, sLen, 0, wordDict, "", "", result)
+                return self.wordBreak2(s, sLen, 0, curWordSet, wordDict, "", "", cacheBuffer, result)
+                # return self.wordBreak3(s, sLen, 0, wordDict, "", "", result)
             else:
                 return result
         
-    def wordBreak2(self, inputStr, strLen, depth, curWordSet, wordDict, tmpRes, cacheBuffer, result):
+    def wordBreak2(self, inputStr, strLen, depth, curWordSet, wordDict, tmpWord, tmpRes, cacheBuffer, result):
         """
         :type inputStr: str
         :type strLen: int
@@ -61,11 +61,11 @@ class Solution(object):
                         cacheBuffer[inputStr[0:depth + 1]] = tmpWord
                     else:
                         cacheBuffer[inputStr[0:depth + 1]] = (tmpRes[1:] + " " + tmpWord)
-                    self.wordBreak2(inputStr, strLen, depth + 1, curWordSet, wordDict, tmpRes + " " + tmpWord, cacheBuffer,
+                    self.wordBreak2(inputStr, strLen, depth + 1, curWordSet, wordDict, "", tmpRes + " " + tmpWord, cacheBuffer,
                                 result)
                     del cacheBuffer[inputStr[0:depth + 1]]
                 return result
-        tmpWord = ""  
+
         for i in range(depth, strLen):
             tmpWord += inputStr[i]
             if tmpWord in curWordSet or tmpWord in wordDict:
@@ -74,9 +74,11 @@ class Solution(object):
                     print "tmpWord: " + tmpWord
                     print "tmpRes: " + tmpRes
                     if not tmpRes:
-                        result.append(tmpWord)
+                        if tmpWord not in result:
+                            result.append(tmpWord)
                     elif (tmpRes[1:] + " " + tmpWord) not in result:
-                        result.append(tmpRes[1:] + " " + tmpWord)
+                        if (tmpRes[1:] + " " + tmpWord) not in result:
+                            result.append(tmpRes[1:] + " " + tmpWord)
                     break
                 else:
                     print "Step %d" %(i)
@@ -91,7 +93,10 @@ class Solution(object):
                         print (key, ':', cacheBuffer[key])
                     print "tmpWord: " + tmpWord
                     print "tmpRes: " + tmpRes
-                    self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, tmpRes + " " + tmpWord, cacheBuffer, result)
+                    if tmpWord in wordDict:
+                        self.wordBreak2(inputStr, strLen, i+1, curWordSet, wordDict, "", tmpRes + " " + tmpWord, cacheBuffer, result)
+                    else:
+                        self.wordBreak2(inputStr, strLen, i + 1, curWordSet, wordDict, tmpWord, tmpRes, cacheBuffer, result)
                     print "tmpWord: " + tmpWord
                     print "tmpRes: " + tmpRes
                     del cacheBuffer[inputStr[0:i+1]]
@@ -158,6 +163,7 @@ if __name__ == "__main__":
     # print sol.wordBreak("a", {"a"})
     # print sol.wordBreak("apple", {"pear","apple","peach"})
     # print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
+    print sol.wordBreak("aggegbnngohbggalojckbdfjakgnnjadhganfdkefeddjdnabmflabckflfljafdlmmbhijojiaaifedaihnoinedhhnolcjdam",["o","b","gbdfgiokkfnhl","glibjohcmd","bblcnhelanckn","mflabckflflja","mgda","oheafhajjo","cc","cffalholojikojm","haljiamccabh","gjkdlonmhdacd","ee","bc","mjj","fdlmmbhij","nn","jiaaifedaihn","nhligg","hooaglldlei","hajhebh","ebijeeh","me","eibm","ekkobhajgkem","ohaofonhjakc","n","kjjogm","mhn","odcamjmodie","edmagbkejiocacl","kcbfnjialef","lhifcohoe","akgnn","fbgakjhjb","belggjekmn","oinedhhnolc","ddekcnag","oneoakldakalb","bodnokemafkhkhf","dkefeddjdnab","gflcngff","fgnfmbcogmojgm","ad","jadhganf","lojckbdfj","gadkaoe","jdam","ljjndlnednnombl","aggegbnngohbgga"])
     # print sol.wordBreak("bb", {"a","b","bbb","bbbb"})
     print sol.wordBreak("aaaaaaa", {"aaaa","aa","a"})
     # TODO: need debug when add cache
