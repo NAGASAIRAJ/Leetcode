@@ -150,7 +150,59 @@ class Solution(object):
                 print "tmp_res: " + tmp_res
         return result
 
-    def check_char(self, input_str, str_len, word_dict):
+    def word_break_4(self, input_str, str_len, depth, word_dict, tmp_word, tmp_res, cache_buffer, result):
+        """
+        :type input_str: str
+        :type str_len: int
+        :type depth: int
+        :type word_dict: Set[str]
+        :type word_dict: Set[str]
+        :type tmp_word: str
+        :type tmp_res: str
+        :type cache_buffer: dict
+        :type result: List[str]
+        :rtype result: List[str]
+        """
+        print "Processing depth: %d" % depth
+        for i in range(depth, str_len):
+            tmp_word += input_str[i]
+            if i == (str_len - 1):
+                print "Last step"
+                print "tmp_word: " + tmp_word
+                print "tmp_res: " + tmp_res
+                if tmp_word in word_dict:
+                    if not tmp_res:
+                        if tmp_word not in result:
+                            result.append(tmp_word)
+                    elif (tmp_res[1:] + " " + tmp_word) not in result:
+                        if (tmp_res[1:] + " " + tmp_word) not in result:
+                            result.append(tmp_res[1:] + " " + tmp_word)
+                    break
+            else:
+                print "tmp_word: " + tmp_word
+                print "tmp_res: " + tmp_res
+                later_str = input_str[depth:]
+                if later_str in cache_buffer:
+                    if not tmp_res:
+                        tmp_result = cache_buffer[later_str]
+                    else:
+                        tmp_result = tmp_res[1:] + " " + cache_buffer[later_str]
+                    if tmp_result not in result:
+                        result.append(tmp_result)
+                else:
+                    if tmp_word in word_dict:
+                        cache_buffer[input_str[0:i + 1]] = tmp_word
+                        self.word_break_3(input_str, str_len, i + 1, word_dict, "", tmp_res + " " + tmp_word, result)
+                    else:
+                        cache_buffer[input_str[0:i + 1]] = (tmp_res[1:] + " " + tmp_word)
+                        self.word_break_3(input_str, str_len, i + 1, word_dict, tmp_word, tmp_res, result)
+                    del cache_buffer[input_str[0:i + 1]]
+                print "tmp_word: " + tmp_word
+                print "tmp_res: " + tmp_res
+        return result
+
+    @staticmethod
+    def check_char(input_str, str_len, word_dict):
         char_set = set()
         for word in word_dict:
             for i in range(len(word)):
