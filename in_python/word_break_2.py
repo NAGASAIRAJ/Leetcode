@@ -18,7 +18,7 @@ class Solution(object):
             if self.checkChar(s, sLen, wordDict):
                 cacheBuffer = {}
                 # return self.wordBreak2(s, sLen, 0, curWordSet, wordDict, "", cacheBuffer, result)
-                return self.wordBreak3(s, sLen, 0, wordDict, "", result)
+                return self.wordBreak3(s, sLen, 0, wordDict, "", "", result)
             else:
                 return result
         
@@ -102,7 +102,7 @@ class Solution(object):
 
         return result
 
-    def wordBreak3(self, inputStr, strLen, depth, wordDict, tmpRes, result):
+    def wordBreak3(self, inputStr, strLen, depth, wordDict, tmpWord, tmpRes, result):
         """
         :type inputStr: str
         :type strLen: int
@@ -113,7 +113,6 @@ class Solution(object):
         :rtype result: List[str]
         """
         print "Processing depth: %d" %(depth)
-        tmpWord = ""
         for i in range(depth, strLen):
             tmpWord += inputStr[i]
             if i == (strLen - 1):
@@ -130,9 +129,9 @@ class Solution(object):
                 print "tmpWord: " + tmpWord
                 print "tmpRes: " + tmpRes
                 if tmpWord in wordDict:
-                    self.wordBreak3(inputStr, strLen, i+1, wordDict, tmpRes + " " + tmpWord, result)
+                    self.wordBreak3(inputStr, strLen, i+1, wordDict, "", tmpRes + " " + tmpWord, result)
                 else:
-                    self.wordBreak3(inputStr, strLen, i + 1, wordDict, tmpRes + tmpWord, result)
+                    self.wordBreak3(inputStr, strLen, i + 1, wordDict, tmpWord, tmpRes, result)
                 print "tmpWord: " + tmpWord
                 print "tmpRes: " + tmpRes
         return result
