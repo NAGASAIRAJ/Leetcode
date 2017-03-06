@@ -17,7 +17,8 @@ class Solution(object):
         else:
             if self.checkChar(s, sLen, wordDict):
                 cacheBuffer = {}
-                return self.wordBreak2(s, sLen, 0, curWordSet, wordDict, "", cacheBuffer, result)
+                # return self.wordBreak2(s, sLen, 0, curWordSet, wordDict, "", cacheBuffer, result)
+                return self.wordBreak3(s, sLen, 0, wordDict, "", result)
             else:
                 return result
         
@@ -99,6 +100,41 @@ class Solution(object):
                     for key in cacheBuffer:
                         print (key, ':', cacheBuffer[key])
 
+        return result
+
+    def wordBreak3(self, inputStr, strLen, depth, wordDict, tmpRes, result):
+        """
+        :type inputStr: str
+        :type strLen: int
+        :type depth: int
+        :type wordDict: Set[str]
+        :type tmpRes: str
+        :type wordDict: Set[str]
+        :rtype result: List[str]
+        """
+        print "Processing depth: %d" %(depth)
+        tmpWord = ""
+        for i in range(depth, strLen):
+            tmpWord += inputStr[i]
+            if i == (strLen - 1):
+                print "Last step"
+                print "tmpWord: " + tmpWord
+                print "tmpRes: " + tmpRes
+                if tmpWord in wordDict:
+                    if not tmpRes:
+                        result.append(tmpWord)
+                    elif (tmpRes[1:] + " " + tmpWord) not in result:
+                        result.append(tmpRes[1:] + " " + tmpWord)
+                    break
+            else:
+                print "tmpWord: " + tmpWord
+                print "tmpRes: " + tmpRes
+                if tmpWord in wordDict:
+                    self.wordBreak3(inputStr, strLen, i+1, wordDict, tmpRes + " " + tmpWord, result)
+                else:
+                    self.wordBreak3(inputStr, strLen, i + 1, wordDict, tmpRes + tmpWord, result)
+                print "tmpWord: " + tmpWord
+                print "tmpRes: " + tmpRes
         return result
 
     def checkChar(self, inputStr, strLen, wordDict):
