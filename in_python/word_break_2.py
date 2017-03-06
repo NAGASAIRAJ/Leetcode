@@ -2,7 +2,7 @@ class Solution(object):
     def wordBreak(self, s, wordDict):
         """
         :type s: str
-        :type wordDict: Set[str]
+        :type wordDict: List[str]
         :rtype: List[str]
         """
         curWordSet = set()
@@ -108,6 +108,7 @@ class Solution(object):
         :type strLen: int
         :type depth: int
         :type wordDict: Set[str]
+        :type tmpWord: str
         :type tmpRes: str
         :type wordDict: Set[str]
         :rtype result: List[str]
@@ -121,9 +122,11 @@ class Solution(object):
                 print "tmpRes: " + tmpRes
                 if tmpWord in wordDict:
                     if not tmpRes:
-                        result.append(tmpWord)
+                        if tmpWord not in result:
+                            result.append(tmpWord)
                     elif (tmpRes[1:] + " " + tmpWord) not in result:
-                        result.append(tmpRes[1:] + " " + tmpWord)
+                        if (tmpRes[1:] + " " + tmpWord) not in result:
+                            result.append(tmpRes[1:] + " " + tmpWord)
                     break
             else:
                 print "tmpWord: " + tmpWord
