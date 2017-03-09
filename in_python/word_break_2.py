@@ -187,18 +187,21 @@ class Solution(object):
                     if not tmp_res:
                         tmp_result = cache_buffer[later_str]
                     else:
+                        if "" in tmp_res[1:]: # no match in dictionary for previous string
+                            return
                         tmp_result = tmp_res[1:] + " " + cache_buffer[later_str]
-                    if tmp_result not in result:
+                    if tmp_result not in result and len(tmp_result.replace(" ", "")) == str_len:
                         result.append(tmp_result)
                 else:
                     if tmp_word in word_dict:
                         cache_buffer[input_str[0:i + 1]] = tmp_word
                         self.word_break_4(input_str, str_len, i + 1, word_dict, "", tmp_res + " " + tmp_word,
                                           cache_buffer, result)
+                        # del cache_buffer[input_str[0:i + 1]]
                     else:
-                        cache_buffer[input_str[0:i + 1]] = (tmp_res[1:] + " " + tmp_word)
+                        # cache_buffer[input_str[0:i + 1]] = (tmp_res[1:] + " " + tmp_word)
                         self.word_break_4(input_str, str_len, i + 1, word_dict, tmp_word, tmp_res, cache_buffer, result)
-                    del cache_buffer[input_str[0:i + 1]]
+                    # del cache_buffer[input_str[0:i + 1]]
                 print "tmp_word: " + tmp_word
                 print "tmp_res: " + tmp_res
         return result
@@ -220,14 +223,14 @@ class Solution(object):
 
 if __name__ == "__main__":
     sol = Solution()
-    # print sol.wordBreak("a", {"a"})
-    # print sol.wordBreak("apple", {"pear","apple","peach"})
-    # print sol.wordBreak("catsanddog", {"cat", "cats", "and", "sand", "dog"})
+    # print sol.word_break("a", ["a"])
+    # print sol.word_break("apple", ["pear","apple","peach"])
+    # print sol.word_break("catsanddog", ["cat", "cats", "and", "sand", "dog"])
     # print sol.word_break("aggegbnngohbggalojckbdfjakgnnjadhganfdkefeddjdnabmflabckflfljafdlmmbhijojiaaifedaihnoinedhhnolcjdam",
     #                      ["o", "b", "gbdfgiokkfnhl", "glibjohcmd", "bblcnhelanckn", "mflabckflflja", "mgda", "oheafhajjo", "cc", "cffalholojikojm", "haljiamccabh", "gjkdlonmhdacd", "ee", "bc", "mjj", "fdlmmbhij", "nn", "jiaaifedaihn", "nhligg", "hooaglldlei", "hajhebh", "ebijeeh", "me", "eibm", "ekkobhajgkem", "ohaofonhjakc", "n", "kjjogm", "mhn", "odcamjmodie", "edmagbkejiocacl", "kcbfnjialef", "lhifcohoe", "akgnn", "fbgakjhjb", "belggjekmn", "oinedhhnolc", "ddekcnag", "oneoakldakalb", "bodnokemafkhkhf", "dkefeddjdnab", "gflcngff", "fgnfmbcogmojgm", "ad", "jadhganf", "lojckbdfj", "gadkaoe", "jdam", "ljjndlnednnombl", "aggegbnngohbgga"])
-    # print sol.wordBreak("bb", {"a","b","bbb","bbbb"})
-    print sol.word_break("aaaaaaa", ["aaaa", "aa"])
-    print sol.word_break("aaaaaaa", ["aaaa", "aa", "a"]) # expected []
+    # print sol.word_break("bb", ["a","b","bbb","bbbb"])
+    # print sol.word_break("aaaaaaa", ["aaaa", "aa"]) # expected []
+    print sol.word_break("aaaaaaa", ["aaaa", "aa", "a"])
     # TODO: need debug when add cache
-    # print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"})
-    # print sol.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", {"aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa","ba"})
+    # print sol.word_break("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", ["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"])
+    # print sol.word_break("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", ["aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa","ba"])
